@@ -533,6 +533,11 @@
     <Content Include="images\blog-measonry6.jpg" />
     <Content Include="images\bottom_pen.png" />
     <Content Include="images\bottom_right.png" />
+    <Content Include="images\Charlie Logo Web.png" />
+    <Content Include="images\charlieDigitalBanner.jpg" />
+    <Content Include="images\CharlieDigitalDumfries.jpg" />
+    <Content Include="images\CharlieDigitalServices.jpg" />
+    <Content Include="images\charlieDigitalWebDevelpoment.jpg" />
     <Content Include="images\counter-icon1.png" />
     <Content Include="images\counter-img.jpg" />
     <Content Include="images\favicon.png" />

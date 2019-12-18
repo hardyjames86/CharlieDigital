@@ -4167,3 +4167,11 @@ html{
 .buttonBar {
     display: none;
 }
+
+.static-nav {
+    background-color: rgba(106, 13, 173, 0.4);
+}
+
+div.service-box {
+border-radius:5px;
+}
