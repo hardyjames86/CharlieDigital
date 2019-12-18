@@ -489,6 +489,7 @@
     <Content Include="element-team.html" />
     <Content Include="element-testimonial.html" />
     <Content Include="error.html" />
+    <Content Include="favicon.png" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\revicons.svg" />
