@@ -4175,3 +4175,12 @@ html{
 div.service-box {
 border-radius:5px;
 }
+
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 26px;
+    }
+
+}
