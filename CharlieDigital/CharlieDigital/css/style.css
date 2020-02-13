@@ -4184,3 +4184,41 @@ border-radius:5px;
     }
 
 }
+
+
+
+.owl-item .service-box {
+    background: url('/images/pur.jpg') !important;
+    color: #282828 !important;
+    border-radius: 0px !important;
+}
+
+.owl-item.active .service-box:last-child {
+    background: url('/images/pur.jpg') !important;
+    color: #282828 !important;
+    border-radius: 0px !important;
+}
+
+
+
+
+.owl-stage:first-child .center .service-box {
+    background: rgb(0,0,0);
+    background: url('/images/1.jpg') !important;
+    border-radius: 15px !important;
+    color: white !important;
+}
+
+.testimonial-bg {
+    background: url(../images/PERSON.jpg) no-repeat;
+    background-position-y: 60%;
+}
+
+.static-nav {
+    background-color: rgba(106, 13, 173, 0.4);
+    background: rgba(106, 13, 173, 0.7);
+}
+
+.mainBannerHeader {
+margin-top:50px;
+}

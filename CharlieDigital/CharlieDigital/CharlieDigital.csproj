@@ -929,6 +929,8 @@
     <Content Include="video\video-slide.ogv" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\master.cshtml" />
+    <Content Include="Views\NewsArticle.cshtml" />
+    <Content Include="Views\NewsList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
