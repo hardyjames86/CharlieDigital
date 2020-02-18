@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e2aa8fc6e8c4599")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4cd852d79a19757c")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -118,6 +118,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("newsIntro")]
 		public string NewsIntro => this.Value<string>("newsIntro");
+
+		///<summary>
+		/// News Quote
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("newsQuote")]
+		public string NewsQuote => this.Value<string>("newsQuote");
 
 		///<summary>
 		/// News Title
