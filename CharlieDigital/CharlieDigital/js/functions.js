@@ -277,7 +277,7 @@ $("#submit_btn").click(function() {
    
    /*Testimonials 3columns*/
    $("#testimonial-slider").owlCarousel({
-      items: 3,
+      items: 5,
       autoplay: 2500,
       autoplayHoverPause: true,
       loop: true,
@@ -712,6 +712,87 @@ $("#submit_btn").click(function() {
         disableFocusListener: false,
      }
   });
+
+    $("#rev_arrows2").show().revolution({
+        sliderType: "standard",
+        jsFileLocation: "js/revolution/",
+        sliderLayout: "fullwidth",
+        dottedOverlay: "none",
+        delay: 9000,
+        navigation: {
+            keyboardNavigation: "off",
+            keyboard_direction: "horizontal",
+            mouseScrollNavigation: "off",
+            mouseScrollReverse: "default",
+            onHoverStop: "off",
+            touch: {
+                touchenabled: "on",
+                swipe_threshold: 75,
+                swipe_min_touches: 1,
+                swipe_direction: "horizontal",
+                drag_block_vertical: false
+            },
+            arrows: {
+                style: "zeus",
+                enable: false,
+                hide_onmobile: true,
+                hide_under: 600,
+                hide_onleave: true,
+                hide_delay: 200,
+                hide_delay_mobile: 1200,
+                tmp: '<div class="tp-title-wrap"> <div class="tp-arr-imgholder"></div> </div>',
+                left: {
+                    h_align: "left",
+                    v_align: "center",
+                    h_offset: 30,
+                    v_offset: 0
+                },
+                right: {
+                    h_align: "right",
+                    v_align: "center",
+                    h_offset: 30,
+                    v_offset: 0
+                }
+            }
+        },
+        viewPort: {
+            enable: true,
+            outof: "pause",
+            visible_area: "80%",
+            presize: false
+        },
+        responsiveLevels: [1240, 1024, 778, 480],
+        visibilityLevels: [1240, 1024, 778, 480],
+        gridwidth: [1140, 1024, 768, 480],
+        gridheight: [400, 410, 400, 240],
+        lazyType: "none",
+        parallax: {
+            type: "mouse",
+            origo: "slidercenter",
+            speed: 2000,
+            speedbg: 0,
+            speedls: 0,
+            levels: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 25, 55],
+            disable_onmobile: "on"
+        },
+        shadow: 0,
+        spinner: "off",
+        stopLoop: "off",
+        stopAfterLoops: -1,
+        stopAtSlide: -1,
+        shuffle: "off",
+        autoHeight: "off",
+        hideThumbsOnMobile: "off",
+        hideSliderAtLimit: 0,
+        hideCaptionAtLimit: 0,
+        hideAllCaptionAtLilmit: 0,
+        debugMode: false,
+        fallbacks: {
+            simplifyAll: "off",
+            nextSlideOnWindowFocus: "off",
+            disableFocusListener: false,
+        }
+    });
    
    /*Revolution Carousel 3 cols*/
    $("#rev_carousel").show().revolution({

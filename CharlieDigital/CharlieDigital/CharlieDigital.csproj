@@ -858,6 +858,15 @@
     <Content Include="main-file\video\thumb-slide.jpg" />
     <Content Include="main-file\video\video-slide.mp4" />
     <Content Include="main-file\video\video-slide.webm" />
+    <Content Include="Media\13mj55wb\arm-nvidia-1.jpg" />
+    <Content Include="Media\3foikwpw\maxresdefault-1.jpg" />
+    <Content Include="Media\4q4b4fad\oldmutual-1.jpg" />
+    <Content Include="Media\504lebs3\charles-pjah2ax4uwk-unsplash.jpg" />
+    <Content Include="Media\brkb4nwl\arm-1.jpg" />
+    <Content Include="Media\brkb4nwl\armcodeadvisor.png" />
+    <Content Include="Media\j2ansoyg\code-advisor-screenshot1.jpg" />
+    <Content Include="Media\vhqljanr\arm_2d00_embedded_2d00_blog-1.jpg" />
+    <Content Include="Media\xkids5uq\92126997_workers_clean_windows_outside_the_cape_town_headquarters_of_anglo-south_african_financi_trans-vngzdhlvbadwtlqzwqh5-vx4bjujkqasj1ibgt7o9kw-1.jpg" />
     <Content Include="signin.html" />
     <Content Include="signup.html" />
     <Content Include="video\thumb-slide.jpg" />
@@ -929,6 +938,8 @@
     <Content Include="video\video-slide.ogv" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\master.cshtml" />
+    <Content Include="Views\NewsArticle.cshtml" />
+    <Content Include="Views\NewsList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
