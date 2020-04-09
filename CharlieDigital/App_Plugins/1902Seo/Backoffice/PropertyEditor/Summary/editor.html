@@ -1,0 +1,111 @@
+﻿<div ng-controller="summary.1902Seo.controller">
+    <div class="c-accordion">
+        <div ng-repeat="expand in model.expands">
+            <div class="custom-max-editor-width">
+                <div class="custom-full-width c-accordion-container">
+                    <div class="c-accordion-label">
+                        <span class="c-accordion-left">
+                            {{expand.title}} {{expand.keyword}}
+                        </span>
+                        <span ng-hide="expand.type == 'Keyword' && expand.isExpand" class="checker-badge badge" ng-class="badge.status" ng-repeat="badge in expand.badges" ng-click="expandsContent('{{expand.type}}',true)">
+                             <span ng-if="expand.type =='Keyword'">
+                                    <span ng-if="badge.status=='good'">
+                                    good results on this page
+                                </span>
+                                <span ng-if="badge.status=='improvement'">
+                                    needs improvement on this page
+                                </span>
+                                <span ng-if="badge.status=='bad'">
+                                    issues found on this page
+                                </span>
+                            </span>
+                            
+                            <span ng-if="expand.type !='Keyword'">
+                                {{badge.count}}
+                                <span ng-if="badge.status=='good'">
+                                    Good result
+                                </span>
+                                <span ng-if="badge.status=='improvement'">
+                                    Needs improvement
+                                </span>
+                                <span ng-if="badge.status=='bad'">
+                                    Issues found
+                                </span>
+                            </span>
+                            
+                        </span>
+                        
+                        <span class="c-accordion-right  c-accordion-vertical-m ">
+                            <span class="checker-loader" ng-if="expand.gettingData">
+                                <img src="/App_Plugins/1902Seo/Images/loader.gif" />
+                            </span>
+                            <span>
+                                {{expand.message}}
+                            </span>
+                            <span class="c-expand btn  umb-button__button" ng-click="expandsContent(expand.type)">
+                                Expand
+                                <span ng-if="!expand.isExpand" class="icon-c-down"></span>
+                                <span ng-if="expand.isExpand" class="icon-c-up"></span>
+                            </span>
+                        </span>
+                    </div>
+                    <div ng-if="expand.isExpand">
+                        
+                        <div class="c-accordion-expand">
+           
+                            <div class="c-m-bottom-20">
+                                What do these insights and suggestions mean? <a href="https://1902software.com/seoplus/faq/#performance-review" class="c-a-undelined c-pointer" target="_blank"> Click here to learn more</a>
+                            </div>
+                            <div class="summary-content">
+                            
+                                <div ng-hide="expand.type != 'Keyword'">
+                                    <label class="select-keyword-label" ng-if="model.keywords.length > 0">Select Keyword  <span ng-if="model.config.keywordHint != undefined && model.config.keywordHint != ''" class="c-hint-left"  ng-bind-html="generateHint('{{model.config.keywordHint}}')" c-hint-hover></span></label>
+                                    <select ng-model="model.keyword"
+                                            ng-options="item as item for item in model.keywords" ng-change="refresh('Keyword')" ng-if="model.keywords.length > 0"></select>
+                                    <span class="checker-badge badge" ng-class="badge.status" ng-repeat="badge in expand.keywordBadges" >
+                                        {{badge.count}}
+                                        <span ng-if="badge.status=='good'">
+                                            issues found on this page
+                                        </span>
+                                        <span ng-if="badge.status=='improvement'">
+                                            needs improvement on this page
+                                        </span>
+                                        <span ng-if="badge.status=='bad'">
+                                            good results on this page
+                                        </span>
+                                    </span>
+                                </div>
+                                <ul class="checkers">
+                                    <li class="checker" ng-repeat="content in expand.content">
+                                        <span color-status="{{content.Status}}"></span>
+                                        <h4> {{content.Name}} <span  ng-if="content.Hint !=  undefined && content.Hint != ''" class="c-hint-left" ng-bind-html="generateHint('{{content.Hint}}')" c-hint-hover></span></h4> 
+                                        <div class="c-summary-message">
+                                            <p ng-repeat="message in content.Messages  track by $index">
+                                                <span ng-bind-html="message"></span>
+                                                <a ng-click="openKeywordUsage(model.keyword,content)" ng-if="message == 'Focus keyword was used in other page/s.'" class="custom-label-gray c-a-undelined c-pointer">
+                                                    View Details
+                                                </a>
+                                            </p>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="c-refresh c-accordion-right btn umb-button__button">
+                                <span class="" ng-click="refresh(expand.type, true)">Refresh</span>
+                            </span>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,97 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Seo1902.Web.Helpers;
+@{
+
+    var host = HttpContext.Current.Request.Url.Host;
+    var scheme = HttpContext.Current.Request.Url.Scheme;
+    var hostName = string.Format("{0}://{1}", scheme, host);
+
+
+    Seo1902.Web.Helpers.PageDisplayHelper pageHelper = new Seo1902.Web.Helpers.PageDisplayHelper();
+    var pageModel = pageHelper.Get1902SEOPageRender(Model);
+    var googlePublisher = pageModel.GooglePublisherPage;
+    var defaultSettings = pageModel.GlobalSettings;
+    var globalSchema = pageModel.BusinessSchema;
+    var currentPage = pageModel.Page;
+
+    IPublishedContent twitterImage = null;
+    if (!string.IsNullOrEmpty(currentPage.TwitterImage))
+    {
+        twitterImage = Umbraco.Content(currentPage.TwitterImage);
+    }
+
+    var ogImageUrl = "";
+    var twitterImageUrl = "";
+    var googlePlusImageUrl = "";
+    IPublishedContent ogImage = null;
+    if (!string.IsNullOrEmpty(currentPage.OgImage))
+    {
+        ogImage = Umbraco.Media(currentPage.OgImage);
+    }
+
+    IPublishedContent goolgeImage = null;
+    if (!string.IsNullOrEmpty(currentPage.GoogleImage))
+    {
+        goolgeImage = Umbraco.Media(currentPage.GoogleImage);
+    }
+
+    IPublishedContent defaultImage = null;
+    if (!string.IsNullOrEmpty(defaultSettings.DefaultImage))
+    {
+         defaultImage = Umbraco.Media(defaultSettings.DefaultImage);
+    }
+
+    if (!string.IsNullOrEmpty(hostName))
+    {
+        if (ogImage != null || defaultImage != null)
+        {
+            ogImageUrl = string.Format("{0}{1}", !string.IsNullOrEmpty(hostName) ? hostName : "", ogImage != null ? ogImage.Url : defaultImage != null ? defaultImage.Url : "");
+        }
+
+        if (twitterImage != null || defaultImage != null)
+        {
+            twitterImageUrl = string.Format("{0}{1}", !string.IsNullOrEmpty(hostName) ? hostName : "", twitterImage != null ? twitterImage.Url : defaultImage != null ? defaultImage.Url : "");
+        }
+        if (goolgeImage != null || defaultImage != null)
+        {
+            googlePlusImageUrl = string.Format("{0}{1}", !string.IsNullOrEmpty(hostName) ? hostName : "", goolgeImage != null ? goolgeImage.Url : defaultImage != null ? defaultImage.Url : "");
+        }
+    }
+
+}
+@if (pageModel.IsEnabled)
+{
+    <title>@Html.Raw(currentPage.Title ?? "")</title>
+    <meta name="description" content="@Html.Raw(currentPage.Description ?? "")" />
+    <meta name="keywords" content="@Html.Raw(currentPage.Keywords ?? "")">
+    <meta name="robots" content="@Html.Raw(string.Format("{0},{1}", currentPage.NoIndex ? "NOINDEX": "INDEX", currentPage.NoFollow ? "NOFOLLOW" : "FOLLOW"))" />
+    <link rel="canonical" href="@Html.Raw(!string.IsNullOrEmpty(currentPage.CannonicalUrl) ? currentPage.CannonicalUrl : currentPage.Url)" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="@Html.Raw(!string.IsNullOrEmpty(currentPage.TwitterTitle) ? currentPage.TwitterTitle : !string.IsNullOrEmpty(defaultSettings.TwitterTitle)  ? defaultSettings.TwitterTitle : currentPage.Name)" />
+    <meta name="twitter:description" content="@Html.Raw( !string.IsNullOrEmpty(currentPage.TwitterDescription)? currentPage.TwitterDescription : (defaultSettings.TwitterDescription ?? ""))" />
+    <meta name="twitter:image:src" content="@Html.Raw(twitterImageUrl)" />
+    <meta property="og:title" content="@Html.Raw(!string.IsNullOrEmpty(currentPage.OgTitle) ? currentPage.OgTitle : !string.IsNullOrEmpty(defaultSettings.OgTitle)  ? defaultSettings.OgTitle : currentPage.Name)" />
+    <meta property="og:url" content="@Html.Raw(!string.IsNullOrEmpty(currentPage.CannonicalUrl) ? currentPage.CannonicalUrl : currentPage.Url)" />
+    <meta property="og:image" content="@Html.Raw(ogImageUrl)" />
+    <meta property="og:description" content="@Html.Raw( !string.IsNullOrEmpty(currentPage.OgDescription)? currentPage.OgDescription : (defaultSettings.OgDescription ?? ""))" />
+    <meta itemprop="name" content="@Html.Raw(@Html.Raw(!string.IsNullOrEmpty(currentPage.GoogleTitle) ? currentPage.GoogleTitle : !string.IsNullOrEmpty(defaultSettings.GoogleTitle)  ? defaultSettings.GoogleTitle : currentPage.Name))" />
+    <meta itemprop="description" content="@Html.Raw( !string.IsNullOrEmpty(currentPage.GoogleDescription)? currentPage.GoogleDescription  : (defaultSettings.GoogleDescription ?? ""))" />
+    <meta itemprop="image" content="@Html.Raw(googlePlusImageUrl)" />
+    if (!string.IsNullOrEmpty(googlePublisher))
+    {
+        <link rel="publisher" href="@Html.Raw(googlePublisher)" />
+    }
+    if (pageModel != null)
+    {
+        @Html.Raw(pageModel.Schemas ?? "")
+        @Html.Raw(pageModel.BusinessSchema ?? "");
+    }
+
+    if (currentPage != null)
+    {
+        @Html.Raw(currentPage.SchemaLdScript ?? "")
+    }
+}
+
+
+

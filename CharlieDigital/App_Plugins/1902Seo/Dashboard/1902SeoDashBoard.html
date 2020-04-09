@@ -1,0 +1,587 @@
+﻿<div ng-controller="seoDashboard1902.controller">
+    <div class="ng-scope c-seo-dashboard c-bg-white">
+        <div ng-if="startUp.isFirstTimeInstall">
+            <div class="c-row c-p-20">
+
+                <div class="c-4 c-1902-banner">
+                    <div class="logo-1902-horizontal">
+                        <img src="/App_Plugins/1902Seo/Images/logo-1902-seo-plus.svg" />
+                    </div>
+                </div>
+                <div class="c-8 c-display-t c-1902-banner">
+                    <div class="c-1902-banner-text c-display-tc c-v-middle">
+                        <div>
+                            <div class="c-w-bold">
+                                We’ve got more Umbraco solutions that could help you.
+                            </div>
+                            <div class="c-text-s-12">
+                                1902 offers end-to-end Umbraco solutions from design to development and day-to-day support.
+                            </div>
+                        </div>
+                        <div>
+                            <a href="https://1902software.com/contact-us/ " class="c-contact-us-btn  button-dark-green c-a-unstyled" target="_blank">
+                                Contact us today
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-row">
+                <div class="col-sm-12">
+                    <div class="c-wizzard-box c-bg-white">
+                        <div ng-if="!startUp.isImportComplete && !import.isProcessing">
+                            <div class="c-m-top-15">
+                                1902 SEO+ will now scan all pages in the website to copy your existing SEO settings, metadata, XML schemas, and open graph, then import them into 1902 SEO+.
+                            </div>
+                            <div class="c-m-top-15">
+                                Before you click ‘Proceed’, make sure that you have read our guide on installation to avoid any mistakes.
+                            </div>
+                            <div class="c-m-top-15 c-text-left">
+                                <label for="chkIsConfirmProcess">
+                                    <input type="checkbox" ng-checked="startUp.isConfirm" ng-model="startUp.isConfirm" id="chkIsConfirmProcess"  style="margin-bottom:5px"/>
+                                    I have read and understood the <a href="https://1902software.com/seoplus/faq/#installation" target="_blank" class="c-a-undelined c-pointer">installation</a> guide.
+                                </label>
+                            </div>
+                            <div class="c-m-top-15">
+                                <input type="button" value="Proceed" class="button-green" ng-click="startStartUpImport()" ng-disabled="!startUp.isConfirm" />
+                            </div>
+
+                            <div class="c-m-top-15 c-warning" ng-if="startUp.isInterrupted">
+                                Import was interrupted. 1902 SEO+ need to repeat import.
+                            </div>
+                        </div>
+                        <div ng-if="import.isProcessing">
+                            <div class="c-m-top-15">
+                                This might take a while. This process is running on the background; you can wait for it to finish or you can close your browser for the meantime.
+                            </div>
+                            <div class="c-m-top-15">
+                                Processing : {{import.currentCount}} out of {{import.totalCount}}
+                            </div>
+                            <div ng-if="import.isGeneratingReport">
+                                Generating report...
+                            </div>
+                        </div>
+                        <div ng-if="!import.isProcessing && startUp.isImportComplete">
+                            <div class="c-m-top-15">
+                                The scanning has been completed. The package has successfully copied and imported the current SEO+ tags (titles, meta descriptions, meta robots, canonical, Twitter card details, open graph details, Google+ details, Google publisher and LD scripts, (schemas), etc.) it has found in your website to 1902 SEO+. 
+                            </div>
+                            <div ng-if="import.hasDuplicate || startUp.hasDuplicate" class="c-m-top-15">
+                                <span style="margin-bottom: 10px;display: block; color:red ">
+                                    Warning: 1902 SEO+ found multiple tags on some of your pages. Only the <b>first instance</b> of these tags were copied and imported to 1902 SEO+.
+                                </span>
+                            </div>
+                            <div class="c-m-top-15">
+                                Download the report summary to see the pages that have been scanned. In this report, you can also see the pages where there are duplicate tags.
+                                Make sure to read our <a href="https://1902software.com/umbraco/seoplus/faq#installation" target="_blank" class="c-a-undelined c-pointer">installation</a> guide to avoid errors.
+                            </div>
+
+                            <div ng-if="import.summaryFile.Path != ''"  class="c-m-top-15">
+                                <a class="c-pointer c-a-undelined" href="/{{import.summaryFile.Path}}" title="File Created : {{import.summaryFile.CreatedDate}}">Download report (CSV file)</a>
+                                <span ng-bind-html="generateHint('Need help with understanding this report? ','https://1902software.com/umbraco/seoplus/faq#summary-report', 'Click here')" class="c-hint-left" c-hint-hover></span>
+                            </div>
+                            <div class="c-m-top-15">
+                                <input type="button" value="Finish" class="button-green" ng-click="startUpFinish()" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!startUp.isFirstTimeInstall">
+            <div class="c-row  c-relative" ng-if="!verify.isActivated">
+                <div class="c-12 c-verify-banner">
+                    <div class="c-verify-inner">
+                        Get updates on version changes, fixes, new releases, and other news on 1902 SEO+. <a class="c-a-undelined c-pointer c-w-bold" ng-click="openVerificationFormOpen()">Subscribe to 1902 Software’s Umbraco newsletter »</a>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="!verifyForm.isClosed" class="c-verify-overlay canClose cPopUpScroll">
+                <div class="c-verify-overlay-inner">
+                    <div class="c-verify-close" ng-click="closeVerificationFormPopUp()">
+                        Close <span class="icon-c-close-wht"></span>
+                    </div>
+                    <div ng-if="verifyForm.isLoading" class="loading-overlay">
+                        <span class="loading-icon">
+                            <img src="/App_Plugins/1902Seo/Images/loader.gif" />
+                        </span>
+                    </div>
+                    <div class="c-verify-wrapper">
+
+                        <div>
+                            <img src="/App_Plugins/1902Seo/Images/logo-1902-seoplus-white.svg" />
+                        </div>
+                        <div class="c-m-top-10">
+                            Enter your email address to receive updates about 1902 SEO+. You’ll also be added to our Umbraco newsletter where you can learn more about how we can help with your Umbraco needs.
+                        </div>
+                        <div ng-if="!verifyForm.hasInputCode">
+                            <ng-form name="frmVerifyRegistration" class="c-frm-verification">
+                                <div class="c-m-top-10">
+                                    <input type="text" class="custom-input c-full-width" ng-model="verifyForm.email" placeholder="Email address" ng-pattern='verifyForm.emailValidation' required />
+                                </div>
+
+                                <div class="c-m-top-10 c-text-left">
+                                    <label for="chkAccept"><input type="checkbox" ng-checked="verifyForm.isAcceptTerms" ng-model="verifyForm.isAcceptTerms" id="chkAccept" class="c-m-right-15"   style="margin-bottom:5px"/>I have read <a class="c-a-undelined c-pointer" href="https://1902software.com/about/legal/privacy-policy/" target="_blank">1902 Software’s Privacy Policy</a>.</label>
+                                </div>
+
+
+                            </ng-form>
+                            <div class="c-m-top-10">
+                                <input type="button" class="button-green c-full-width" ng-click="submitRegistration()" value="Submit" ng-disabled="!(frmVerifyRegistration.$valid && verifyForm.isAcceptTerms)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-row c-m-100 c-p-20" ng-class="{cNotActivated : !verify.isActivated, cPopUpOpen : !verifyForm.isClosed}">
+
+                <div class="c-12">
+                    <div class="c-row" ng-if="check.isProcessing">
+                        <div class="c-12 text-center" ng-class="{cCheckActivated: verify.isActivated ,cCheckNotActivated :!verify.isActivated }">
+                            <span>
+                                This process is running on the background; you can wait for it to finish or you can close your browser for the meantime. Checking : {{check.currentCount}} out of {{check.totalCount}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="c-row">
+
+                        <div class="c-4 c-1902-banner">
+                            <div class="logo-1902-horizontal">
+                                <img src="/App_Plugins/1902Seo/Images/logo-1902-seo-plus.svg" />
+                            </div>
+                        </div>
+                        <div class="c-8 c-display-t c-1902-banner">
+                            <div class="c-1902-banner-text c-display-tc c-v-middle">
+                                <div>
+                                    <div class="c-w-bold">
+                                        We’ve got more Umbraco solutions that could help you.
+                                    </div>
+                                    <div class="c-text-s-12">
+                                        1902 offers end-to-end Umbraco solutions from design to development and day-to-day support.
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="https://1902software.com/contact-us/ " class="c-contact-us-btn  button-dark-green c-a-unstyled" target="_blank">
+                                        Contact us today
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="c-row c-m-top-17">
+                        <div class="c-12">
+                            This is your SEO+ dashboard where you can manage site-wide SEO settings.
+                        </div>
+                    </div>
+                    <div ng-if="!startUp.isEnabled" class="c-row c-border-bottom c-border-top c-m-top-15">
+                        <div class="c-12">
+                            <h3 class="custom-h3">
+                                A quick word before you enable this package
+                            </h3>
+                            <div ng-if="check.isProcessing && check.isGeneratingReport" class="c-row c-p-bottom-15">
+                                <div class="c-12">
+                                    <p>
+                                        Generating report...
+                                    </p>
+                                </div>
+                            </div>
+                            <div ng-if="!check.isProcessing && (check.message != '' || check.errorMessage != '')" class="c-row c-p-bottom-15">
+                                <div class="c-12">
+                                    <span ng-if="check.message != ''" class="c-inline-block c-success-label">
+                                        {{check.message}}
+                                    </span>
+                                    <span ng-if="check.errorMessage != ''" class="c-inline-block c-error-label">
+                                        {{check.errorMessage}}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="c-row">
+                                <div class="c-12">
+
+                                    <div class="c-m-bottom-15">
+                                        If you have existing SEO tags within your website, enabling 1902 SEO+ will result to duplicate tags. In order to avoid this, make sure that you have removed all existing tags in your site before enabling the package.
+                                    </div>
+                                    <div class="c-m-bottom-15">
+                                        Don’t worry, 1902 SEO+ has already scanned and saved your current SEO settings so you won’t lose the work you’ve done.
+                                        <a class="c-a-undelined c-pointer" href="https://1902software.com/umbraco/seoplus/faq/#duplicate-tags" target="_blank">Learn more about duplicate tags and how it might affect your SEO</a>.
+
+                                    </div>
+                                    <div class="c-m-bottom-15">
+                                        You can download the summary report (CSV file) to check the current SEO settings within your pages. You can also rescan your pages for an up-to-date report in case you have made any changes since the last scan.
+                                    </div>
+                                    <div ng-if="check.summaryFile.Path != '' && !check.isProcessing" class="c-m-bottom-15">
+                                        <span>
+                                            <a class="c-a-undelined c-pointer" href="/{{check.summaryFile.Path}}" title="File Created : {{check.summaryFile.CreatedDate}}">Download report (CSV file)</a>
+                                            <span ng-bind-html="generateHint('Need help with understanding this report? ','https://1902software.com/umbraco/seoplus/faq/#summary-report', 'Click here')" class="c-hint-left" c-hint-hover></span>
+                                            or <a class="c-a-undelined c-pointer" ng-disabled="check.isProcessing" ng-click="checkAndTryEnable1902Seo()"> Rescan pages</a>
+                                        </span>
+                                    </div>
+                                    <div ng-if="import.summaryFile.Path != '' && check.summaryFile.Path == '' && !check.isProcessing " class="c-m-bottom-15">
+                                        <span>
+                                            <a class="c-a-undelined c-pointer" href="/{{import.summaryFile.Path}}" title="File Created : {{import.summaryFile.CreatedDate}}">Download report (CSV file)</a>
+                                            <span ng-bind-html="generateHint('Need help with understanding this report? ','https://1902software.com/umbraco/seoplus/faq/#summary-report', 'Click here')" class="c-hint-left" c-hint-hover></span>
+                                            or <a class="c-a-undelined c-pointer" ng-disabled="check.isProcessing" ng-click="checkAndTryEnable1902Seo()"> Rescan pages</a>
+                                        </span>
+                                    </div>
+                                    <div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="c-row c-p-bottom-25">
+                                <div class="c-12">
+
+
+                                    <div>
+                                        <div class="c-m-bottom-15">
+                                            If you are 100% sure that your site no longer contains SEO tags, type ‘YES’ below and click ‘Rescan and enable’. This will rescan your pages to double-check for duplicate tags, after which the package will be enabled and you can start managing your technical SEO settings.
+                                        </div>
+                                    </div>
+                                    <div class="c-m-bottom-15">
+                                        <input type="text" style="width:80px" ng-model="check.confirmationText" placeholder="Type YES" ng-disabled="check.isProcessing" /> <input type="button" value="Rescan and enable" class="button-dark-green button-scan" ng-disabled="check.isProcessing || (!check.isProcessing && (check.confirmationText | lowercase) != 'yes')" ng-click="checkAndEnable1902SEo()" />
+                                    </div>
+                                    <div>
+                                        Note: 1902 SEO+ is currently <span class="c-f-red">disabled</span>. The features below will not be accessible unless you enable the package.
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="c-row">
+                        <div class="c-12">
+                            <h3 class="custom-h3">
+                                Global Link Publisher
+                            </h3>
+                            <div class="p-relative">
+                                <div class="c-12">
+                                    <div class="c-2">
+                                        <label class="custom-label">
+                                            Google+ page
+                                        </label>
+                                    </div>
+                                    <div class="c-10">
+                                        <input type="text" placeholder="If you have a Google+ page for your business, add the link here to connect it with your website. " class="custom-input custom-full-input" ng-model="google.goolePlusPage" />
+                                        <span ng-bind-html="generateHint('Your Google+ page is one of the sources that Google uses for its “Knowledge Graph”—the knowledge base responsible for the information box that may appear on the right side of a search results page when someone searches for a specific brand or business. Adding this URL does not guarantee that an information box will appear when someone searches for your brand, but it definitely contributes to your chances.')" class="c-hint-right" c-hint-hover>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="c-row">
+                        <div class="c-12">
+                            <div>
+                                <h3 class="custom-h3">Document Types</h3>
+                                <div class="document-type-table">
+                                    <div ng-if="documentTypes.loading" class="loading-overlay">
+                                        <span class="loading-icon">
+                                            <img src="/App_Plugins/1902Seo/Images/loader.gif" />
+                                        </span>
+                                    </div>
+                                    <table class="custom-table">
+                                        <thead>
+                                            <tr>
+                                                <td width="150px">
+
+                                                    <input type="checkbox" ng-checked="documentTypes.isCheckAllDocumentType" ng-model="documentTypes.isCheckAllDocumentType" ng-click="checkAllDocumentType()" />
+
+                                                    SEO+ Tab
+
+
+                                                    <span ng-bind-html="generateHint('Show/hide the 1902 SEO+ tab when editing specific document types by checking (show) or unchecking (hide) the corresponding boxes.')" class="c-hint-left" c-hint-hover>
+                                                    </span>
+
+                                                </td>
+                                                <td width="175px">Document Type <span ng-bind-html="generateHint('Some document types on your site don’t need SEO (e.g., pages that need a login to be accessed, etc.) For these document types, you can hide the 1902 SEO+ tab as needed. Show/hide the 1902 SEO+ tab when editing specific document types by checking (show) or unchecking (hide) the corresponding boxes.')" class="c-hint-left" c-hint-hover></span></td>
+                                                <td>Languages <span ng-bind-html="generateHint('This indicates the languages used for each document type. ')" class="c-hint-right c-hint-relative" c-hint-hover></span></td>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody ng-if="documentTypes.data.length > 0">
+
+                                            <tr ng-repeat="documentType in documentTypes.data">
+
+                                                <td>
+                                                    <span>
+                                                        <input type="checkbox" key="{{documentType.Id}}" alias="{{documentType.Alias}}"
+                                                               ng-checked="documentType.IsVisible"
+                                                               ng-model="documentType.IsVisible"
+                                                               value="{{documentType.IsVisible}}"
+                                                               ng-click="checkDocumentType(documentType.Id)" />
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    {{documentType.Name}}
+                                                </td>
+                                                <td>
+                                                    {{documentType.Language}}
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                        <tbody ng-if="!(documentTypes.data.length > 0)">
+                                            <tr>
+                                                <td colspan="3" class="center">
+                                                    No document type found.
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot ng-if="(documentTypes.count  !=  documentTypes.data.length) && (documentTypes.count > documentTypes.filter.PageSize)" ng-click="getDocumentTypes()" class="custom-clickable-footer">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <span>
+                                                        Show more
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                        <tfoot ng-if="(documentTypes.count  ==  documentTypes.data.length) && (documentTypes.count > documentTypes.filter.PageSize)" ng-click="getLessDocumentType()" class="custom-clickable-footer">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <span>
+                                                        Show less
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-row c-border-bottom">
+                        <div class="c-6">
+                            <h3 class="custom-h3 f-left c-m-right-15">
+                                Organization/Website schema
+                                <span ng-bind-html="generateHint('Set your organization/website schema markup. You can write your own script, or you can fill up the Schema Builder and 1902 SEO+ will automatically generate the markup for you. This schema markup helps search engines understand your organization or website, and may enhance the rich snippet of your page that appears on search results. This also contributes to the Google Knowledge Graph—the knowledge base responsible for the information box that may appear on the right side of a search results page when someone searches for a specific brand or business.')" class="c-hint-left" c-hint-hover></span>
+                            </h3>
+                            <input ng-if="startUp.isEnabled" type="button" value="Set schema" class="button-violet  c-m-top-17" ng-click="openSchemaBuilder(1)" ng-disabled="verify.isVerifying" />
+                            <input ng-if="!startUp.isEnabled" type="button" class="button-violet  c-m-top-17" value="Set schema" disabled="disabled" />
+                        </div>
+                        <div class="c-6">
+                            <h3 class="custom-h3 f-left c-m-right-15">
+                                Local business schema
+                                <span ng-bind-html="generateHint('Set your local business schema markup. You can write your own script, or you can fill up the Schema Builder and 1902 SEO+ will automatically generate the markup for you. This schema markup tells search engines the details about your business, and is especially helpful for enhancing the rich snippet of your page as well as the local Knowledge Graph that appears on local search results. ')" class="c-hint-left" c-hint-hover></span>
+                            </h3>
+                            <input type="button" value="Set schema" class="button-violet  c-m-top-17" ng-click="openSchemaBuilder(2)" ng-disabled="languages.loading" ng-if="startUp.isEnabled" />
+                            <input type="button" class="button-violet  c-m-top-17" value="Set schema" ng-if="!startUp.isEnabled" disabled="disabled" />
+                        </div>
+
+                    </div>
+
+                    <div class="c-row " ng-if="startUp.isEnabled">
+                        <div class="c-12">
+                            <h3 class="custom-h3 f-left c-m-right-15">
+                                Page SEO
+                                <span ng-bind-html="generateHint('Click on  &#146;Rescan&#146; to scan your site for any multiple or duplicate SEO tags. The  &#146;Disable&#146; button will be visible if 1902 SEO+ detects multiple tags. ')" class="c-hint-left" c-hint-hover></span>
+                            </h3>
+                            <input type="button" class="button-violet c-m-top-17 c-m-right-15"
+                                   style="vertical-align:top;"
+                                   ng-click="checkAndTryEnable1902Seo()" value="Rescan" ng-disabled="check.isProcessing" />
+
+
+                            <span ng-if="check.isGeneratingReport">
+                                Generating report...
+                            </span>
+                            <span ng-if="!check.isProcessing && check.message != ''" class="c-success-label">
+                                {{check.message}}
+                            </span>
+                            <span ng-if="!check.isProcessing && check.errorMessage != ''" class="c-error-label">
+                                {{check.errorMessage}}
+                            </span>
+
+                            <div class="c-label-row c-m-right-15" ng-if="check.summaryFile.Path != '' && !check.isProcessing">
+                                <a class="c-pointer c-a-undelined" href="/{{check.summaryFile.Path}}" title="File Created : {{check.summaryFile.CreatedDate}}">Download report (CSV file)</a>
+                                <span ng-bind-html="generateHint('Need help with understanding this report? ','https://1902software.com/umbraco/seoplus/faq/#summary-report', 'Click here')" class="c-hint-left" c-hint-hover></span>
+                            </div>
+
+                            <div class="f-left">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-row c-border-bottom" ng-if="startUp.isEnabled">
+                        <div class="c-12 c-m-bottom-20" ng-if="!check.isProcessing && check.latest.hasDuplicate">
+                            <input type="button" value="Disable" class="button-red-inverted c-m-right-15" ng-click="disableSeo()" />
+                            <div class="" style="display: inline-block;margin-top: 5px;">
+                                <span>
+                                    Click <a class="c-a-undelined c-m-top-17" href="https://1902software.com/umbraco/seoplus/faq/#duplicate-tags" target="_blank">here</a> to understand why.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-row">
+                        <div class="c-12">
+                            <div class="c-row">
+                                <div class="c-12">
+                                    <h3 class="custom-h3 f-left">
+                                        Pages
+                                    </h3>
+
+                                </div>
+
+                            </div>
+                            <div class="c-row">
+                                <div class="c-6">
+                                    <div class="c-icon-input-container">
+                                        <span class="icon-c-search"></span> <input type="text" placeholder="Type to search" class="" ng-model="pages.filter.Search" value="{{pages.filter.Search}}" ng-keydown="searching($event)" c-on-blur="searchOutFocus()" style="height:30px;" />
+                                        <ul ng-if="pages.isSearching && pages.filter.Search != ''" class="c-search-auto">
+                                            <li ng-click="selectAutoComplete(pages.filter.Search)">{{pages.filter.Search}}</li>
+                                            <li ng-repeat="page in pages.autocomplete | filter:filterPageAutoComplete  | limitTo: 9" ng-click="selectAutoComplete(page.Text)">
+                                                {{page.Text}}
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                    <!--<span ng-bind-html="generateHint('Help text here.')" class="c-hint-right" c-hint-hover></span>-->
+                                </div>
+                                <div class="c-3 text-right c-p-1200-20">
+                                    <select name="dropDownList"
+                                            class="c-dropdown-language"
+                                            ng-model="pages.filter.LanguageUniqueId"
+                                            ng-options="item.UniqueId as item.DisplayLanguage for item in languages.data" ng-disabled="languages.loading"></select>
+                                    <!--<span ng-bind-html="generateHint('Help text here.')" class="c-hint-right" c-hint-hover></span>-->
+                                </div>
+                                <div class="c-3 text-right">
+
+                                    <input type="button" value="Set global open graph values" class="button-violet c-p-1200-20 c-m-right-25 " ng-click="openGlobalSettings()" ng-disabled="languages.loading" ng-if="startUp.isEnabled" />
+                                    <input type="button" class="button-violet c-p-1200-20 c-m-right-25" value="Set global open graph values" ng-if="!startUp.isEnabled" disabled="disabled" />
+                                    <span ng-bind-html="generateHint('Open Graph lets you identify which elements from your page is displayed when it is shared on social media or similar sites. Usually, this includes a title, short description, and an image—all of which, when combined together, paint a visual representation of what your page is about. Here, you can set the default values for the Title, Description, and Image that will be displayed when any page from your site is shared to social media. If you want to set different values for a specific page, go to the Open Graph settings on the SEO+ tab of that page.')" class="c-hint-right" c-hint-hover></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-row">
+                        <div class="c-12">
+                            <div class="custom-index-panel p-relative">
+                                <input type="checkbox" ng-checked="indexing.isIndexAll" ng-model="indexing.isIndexAll" ng-click="checkIndexAll()" ng-disabled="!startUp.isEnabled" />
+                                <div class="panel-check-label">
+                                    <span>
+                                        Set all pages to be index/follow
+                                        <span ng-bind-html="generateHint('Check this box if you want all pages within your site to be indexed and followed by search engines. This means that: (1) your pages can show up in search results and therefore can be found by anyone in the web (indexed), and (2) any outgoing links on your pages will be followed by search engine crawlers, passing “link juice” from your site to these pages. \n \nLink juice refers to the value that is passed from one site to another through hyperlinks. Basically, when you link to another site on your page (and the page is set to be followed), the search engines view the link as a vote or endorsement from your site that the page you are linking to is valuable.')" class="c-hint-left" c-hint-hover></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-row">
+                        <div class="c-12 margin-top-20">
+                            <div class="document-type-table">
+                                <div ng-if="pages.loading" class="loading-overlay">
+                                    <span class="loading-icon">
+                                        <img src="/App_Plugins/1902Seo/Images/loader.gif" />
+                                    </span>
+                                </div>
+
+                                <table class="page-table">
+                                    <thead>
+                                        <tr>
+                                            <td>Pages <span ng-bind-html="generateHint('These are all the pages within your site. Click on a page name to open the SEO+ tab for that specific page.')" class="c-hint-left" c-hint-hover></span></td>
+                                            <td style="width:40px">Index <span ng-bind-html="generateHint('Check the box if you want the specific page to be indexed by search engines. Note: If you checked “Set all pages to be indexed and followed” above, all pages will be automatically indexed unless you uncheck its corresponding box.')" class="c-hint-left" c-hint-hover></span></td>
+                                            <td>Page Title <span ng-bind-html="generateHint('This is the title for your page that appears as the clickable headline on search results.')" class="c-hint-left" c-hint-hover></span></td>
+                                            <td style="min-width:200px;max-width:350px;width:350px;">Meta Description  <span ng-bind-html="generateHint('This is either a snippet or a summary of your page’s content that is displayed below the Page Title on search results. This provides a preview of what your page is about to potential visitors when your page appears on search results.')" class="c-hint-left" c-hint-hover></span></td>
+                                            <td>Keywords <span ng-bind-html="generateHint('Keywords refer to the search terms that you want your page to appear or rank for in search results (e.g., if you want your page to be found when a person searches for “Umbraco package ”, you can set “Umbraco package” as your keyword). You can set up keywords for individual pages, and 1902 SEO+ will then evaluate your page’s content and provide suggestions on what you can improve. Note that these keywords are for analysis purposes only, and doesn’t automatically guarantee that your page will appear on search results for your set keywords.\n\nTo remove a keyword for a specific page, click on the ‘x’ button next to it. To add/edit keywords, go to the SEO+ tab of the specific page.')" class="c-hint-left" c-hint-hover></span></td>
+                                            <td style="width:150px">Open Graph Status <span ng-bind-html="generateHint('This indicates whether you have set open graph values for your pages. (Green = Open Graph/Facebook, Orange = Twitter, and Red = Google+). ‘G’ stands for Global open graph, meaning that the open graph values being used for that page are the ones that you have set here on the dashboard, while ‘C’ stands for Custom open graph, meaning that the open graph values being used for that page are the ones that you have specifically set up on that page’s SEO+ tab.\n\nIf you have not set open graph values for a specific page, the default values set on Global Open Graph will apply.')" class="c-hint-right c-hint-relative" c-hint-hover></span></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-if="pages.data.length > 0">
+                                        <tr ng-repeat="page in pages.data">
+                                            <td ng-if="page.IsHeader" class="c-table-header" colspan="6>"
+                                                language {{page.DisplayedCulture}}
+                                            </td>
+                                            <td ng-if="page.IsHeader == undefined">
+                                                <a href="#/content/content/edit/{{page.Id}}?f=1902" target="_blank">
+                                                    {{page.Name}}
+                                                </a>
+                                            </td>
+                                            <td style="text-align:center" ng-if="page.IsHeader == undefined"><input type="checkbox" ng-checked="page.Index" ng-model="page.Index" /></td>
+                                            <td ng-if="page.IsHeader == undefined">{{page.Title}}</td>
+                                            <td ng-if="page.IsHeader == undefined">{{page.Description}}</td>
+                                            <td ng-if="page.IsHeader == undefined && page.Keywords.length > 0 " style="max-width:200px;">
+                                                <span class="button-torquise f-left m-5 c-no-wrap c-tags-item" ng-repeat="keyword in page.Keywords">
+                                                    <span>{{keyword}}</span>
+                                                    <i class="icon icon-delete c-icon-delete" ng-click="removeKeyword(page.Id,keyword)"></i>
+                                                </span>
+                                            </td>
+                                            <td ng-if="page.IsHeader == undefined && page.Keywords.length  < 1"></td>
+                                            <td style="text-align:center" ng-if="page.IsHeader == undefined">
+                                                <span ng-if="page.IsOgDefaultSet || (!page.IsOgSet && isOgDefault)" class="icon-c-green-g" title="Default Facebook"></span><span ng-if="page.IsOgSet && !page.IsOgDefaultSet" class="icon-c-green" title="Facebook"></span><span ng-if="page.IsTwitterDefaultSet || (!page.IsTwitterSet && isTwitterDefault)" class="icon-c-orange-g c-set-global" title="Default Twitter"></span><span ng-if="page.IsTwitterSet && !page.IsTwitterDefaultSet" class="icon-c-orange c-set-custom " title="Twitter"></span><span ng-if="page.IsGooglePlusDefaultSet || (!page.IsGooglePlusSet && isGooglePlusDefault)" class="icon-c-red-g c-set-global" title="Default Google+"></span><span ng-if="page.IsGooglePlusSet && !page.IsGooglePlusDefaultSet" class="icon-c-red" title="Google+"></span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody ng-if="!(pages.data.length > 0)">
+                                        <tr>
+                                            <td colspan="6">
+                                                No Pages found.
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="6">
+
+                                                <div class="c-paging">
+                                                    <div class="c-paging-size">
+
+                                                        <select name="dropDownList"
+                                                                class="customFullPadded"
+                                                                ng-model="pages.filter.PageSize"
+                                                                ng-options="item.value as item.value for item in pages.pageLimits"></select>
+                                                    </div>
+                                                    <ul ng-if="pages.paging.length > 1">
+                                                        <li ng-if="pages.paging.length > pages.pagingGroupSize && pages.activePagingGroup > 1">
+                                                            <span ng-click="getPagePagingSet('first')" class="button-default">First</span>
+                                                        </li>
+                                                        <li ng-if="pages.paging.length > pages.pagingGroupSize  && pages.activePagingGroup > 1">
+                                                            <span ng-click="getPagePagingSet('prev')">
+                                                                <
+                                                            </span>
+                                                        </li>
+                                                        <li ng-repeat="paging in pages.paging | filter: {group : pages.activePagingGroup} : true">
+                                                            <span ng-class="{cPagingActive : paging.isActive}" ng-click="getPages(paging.pageNumber)">
+                                                                {{paging.pageNumber}}
+                                                            </span>
+                                                        </li>
+                                                        <li ng-if="pages.paging.length > pages.pagingGroupSize &&  pages.activePagingGroup < pages.lastPagingGroup">
+                                                            <span ng-click="getPagePagingSet('next')">
+                                                                >
+                                                            </span>
+                                                        </li>
+                                                        <li ng-if="pages.paging.length > pages.pagingGroupSize &&  pages.activePagingGroup < pages.lastPagingGroup ">
+                                                            <span ng-click="getPagePagingSet('last')" class="button-default">Last</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="c-row">
+                <div class="c-dashboard-footer-save text-right">
+                    <input type="button" class="button-default c-no-wrap" ng-click="refresh()" ng-disabled="isSavingAll" value="Refresh" />
+                    <input type="button" class="button-green c-no-wrap" ng-click="saveAll()" ng-disabled="isSavingAll" value="Save" ng-if="startUp.isEnabled" />
+                    <input type="button" class="button-green c-no-wrap" value="Save" ng-if="!startUp.isEnabled" disabled="disabled" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,277 @@
+﻿<div ng-controller="seoDashboardGlobalBusinessSchema.controller">
+    <div ng-if="model.loading" class="loading-overlay">
+        <span class="loading-icon">
+            <img src="/App_Plugins/1902Seo/Images/loader.gif" />
+        </span>
+    </div>
+    <div class="c-global-modal-header">
+        <h3>
+            Organization/Website Information <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right c-hint-relative" c-hint-hover></span>
+        </h3>
+    </div>
+    <div class="c-global-settings-container" ng-click="containerClick()">
+       
+ 
+
+        <h4 class="c-global-header">
+                    Organization/Website <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span>
+                </h4>
+        <form name="customGlobalSchema">
+            <div>
+                <div class="p-relative">
+                    <input type="checkbox" class="c-checkbox" ng-checked="model.BusinessSchema.IsCustom" ng-model="model.BusinessSchema.IsCustom" /> Custom Schema <span ng-bind-html="generateHint('Check this if you want to use a custom schema, simply paste the JSON-LD script enclosed in <script></script> tag. This is useful if there are more fields you want to apply on the schema.')" class="c-hint-right c-hint-relative" c-hint-hover></span>
+                </div>
+                <div class="p-relative" ng-class="{cNone : !model.BusinessSchema.IsCustom}">
+                    <textarea rows="4" type="text" ng-model="model.BusinessSchema.CustomSchema" ng-pattern="model.scriptPatern"></textarea>
+                </div>
+            </div>
+        </form>
+        <form name="globalSchema" class="c-form ">
+            <div>
+                <div ng-class="{cNone: model.BusinessSchema.IsCustom}">
+                    <div>
+                        <label class="c-global-label c-d-block">Logo <span ng-bind-html="generateHint('The height must be at least 120px, and if the width is less than 100px, then the aspect ratio must be no greater than 3.0.')" class="c-hint-left"> </span></label>
+                        <div class="p-relative c-inline-block">
+                            <div class="c-media-container">
+                                <ul ng-model="model.images" class="add-link">
+                                    <li style="overflow: auto;" ng-repeat="image in model.images">
+                                        <div style="background-image:url({{image.thumbnail}})" class="c-media-img"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="f-left">
+                                <div class="custom-label-gray">
+                                    <p>The maximum file size is {{model.imageMaxKbDisplay}}</p>
+                                    <p>The optimal image size is {{model.imageIdealWidth}} x {{model.imageIdealHeight}} px</p>
+                                </div>
+                                <div ng-if="!showAdd()" class="">
+                                    <button ng-click="remove($index)" class="button-red">Remove</button>
+                                    <button ng-click="add()" class="button-violet">Change Image</button>
+
+                                </div>
+                                <div ng-if="showAdd()">
+                                    <span class="button-violet" ng-click="add()">
+                                        Choose file...
+                                    </span>
+                                </div>
+                                <div>
+                                    <p class="c-warning f-size-12  c-m-top-10">
+                                        {{model.warningMessage}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="c-global-label">Name</label>
+                        <div class="p-relative">
+                            <input type="text" ng-model="model.BusinessSchema.Name" />
+                            <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="c-global-label">Legal Name</label>
+                        <div class="p-relative">
+                            <input type="text" ng-model="model.BusinessSchema.LegalName" />
+                            <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="c-global-label">Description </label>
+                        <div class="p-relative">
+                            <textarea rows="4" type="text" ng-model="model.BusinessSchema.Description"></textarea>
+                            <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                        </div>
+                    </div>
+                      <div>
+                        <label class="c-global-label">Vat Id  </label>
+                        <div class="p-relative">
+                            <input type="text" ng-model="model.BusinessSchema.VatId  " />
+                            <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="c-global-label">Area Served  </label>
+                        <div class="p-relative">
+                            <input type="text" ng-model="model.BusinessSchema.AreaServed  " />
+                            <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="c-global-label">Telephone </label>
+                        <div class="p-relative">
+                            <input type="text" ng-model="model.BusinessSchema.Telephone" />
+                            <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                        </div>
+                    </div>
+
+
+
+
+                    <div>
+                        <label class="c-global-label">Founding Date <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span></label>
+                        <div class="p-relative">
+                            <div>
+                                <c-date-picker field="model.BusinessSchema.FoundingDate"></c-date-picker>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <label class="c-global-label">Founders <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span></label>
+                        <c-list-input-string field="model.BusinessSchema.Founders" input-field="model.inputFounders" validate=""></c-list-input-string>
+                    </div>
+                    <div>
+                        <label class="c-global-label">Brands <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span></label>
+                        <c-list-input-string field="model.BusinessSchema.Brands" input-field="model.inputBrands" validate=""></c-list-input-string>
+                    </div>
+
+
+                    <div>
+                        <label class="c-global-label">Same As <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span></label>
+                        <c-list-input-string field="model.BusinessSchema.SameAS" input-field="model.inputSameAs" validate="url"></c-list-input-string>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div ng-class="{cNone: model.BusinessSchema.IsCustom}">
+                <h4 class="c-global-header">
+                    Address <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span>
+                </h4>
+                <div>
+                    <label class="c-global-label">Locality</label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="model.BusinessSchema.Locality" />
+                        <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Region</label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="model.BusinessSchema.Region" />
+                        <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Postal Code</label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="model.BusinessSchema.PostalCode" />
+                        <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Street </label>
+                    <div class="p-relative">
+                        <textarea rows="4" type="text" ng-model="model.BusinessSchema.Street"></textarea>
+                        <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Country <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span></label>
+                    <div class="p-relative">
+                        <select name="dropDownListContactType" class="c-global-select"
+                                ng-model="model.BusinessSchema.Country"
+                                ng-options="country.name as country.name  for country in model.countries"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div ng-class="{cNone: model.BusinessSchema.IsCustom}">
+                <h4 class="c-global-header">
+                    Contact Point <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span>
+                </h4>
+
+                <div>
+                    <label class="c-global-label">Type</label>
+                    <div class="p-relative">
+                        <!--<input type="text" ng-model="model.ContactTypeInput" />-->
+                        <select name="dropDownListContactType" class="c-global-select"
+                                ng-model="model.ContactTypeInput"
+                                ng-options="contactType as contactType  for contactType in model.contactTypes"></select>
+
+
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Telephone</label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="model.ContactTelephoneInput" />
+
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Email</label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="model.ContactEmailInput"  c-on-blur="ValidateEmailContactPoint($index)" ng-pattern="model.emailValidation" />
+                    </div>
+                </div>
+                <div class="p-relative text-right c-m-top-10">
+                    <input type="button" value="Add More" class="button-default" ng-click="AddContactPoint()" />
+                </div>
+            </div>
+
+
+            <div ng-repeat="contactPoint in model.BusinessSchema.ContactPoints" ng-class="{cNone: model.BusinessSchema.IsCustom}">
+                <div>
+                    <label class="c-global-label">Type</label>
+                    <div class="p-relative">
+                        <select name="dropDownListContactType" class="c-global-select "
+                                ng-model="contactPoint.ContactType"
+                                ng-options="contactType as contactType  for contactType in model.contactTypes"></select>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Telephone</label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="contactPoint.ContactTelephone" />
+
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Email</label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="contactPoint.ContactEmail" c-on-blur="ValidateEmailContactPoint($index)" ng-pattern="model.emailValidation" />
+
+                    </div>
+                </div>
+                <div class="p-relative text-right c-m-top-10">
+                    <input type="button" value="Remove" ng-click="RemoveContactPoint($index)" class="button-red-inverted" />
+                </div>
+            </div>
+            <div ng-class="{cNone: model.BusinessSchema.IsCustom}">
+                <h4 class="c-global-header">
+                    Search Page  <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span>
+
+                </h4>
+
+
+                <div>
+                    <label class="c-global-label">Url</label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="model.BusinessSchema.SearchUrl" placeholder="/Search?s=" />
+                    </div>
+                </div>
+            </div>
+
+            <div ng-class="{cNone: model.BusinessSchema.IsCustom}">
+                <h4 class="c-global-header">
+                    Enable Schema <span ng-bind-html="generateHint('This is my hint.')" class="c-hint-left" c-hint-hover></span>
+                </h4>
+                <div class="p-relative">
+                    <input type="checkbox" class="c-checkbox" ng-checked="model.BusinessSchema.ShowOrganization" ng-model="model.BusinessSchema.ShowOrganization" /> Organization <span ng-bind-html="generateHint('Hint.')" class="c-hint-left " c-hint-hover></span>
+                </div>
+                <div class="p-relative">
+                    <input type="checkbox" class="c-checkbox" ng-checked="model.BusinessSchema.ShowWebsite" ng-model="model.BusinessSchema.ShowWebsite" /> Website <span ng-bind-html="generateHint('Hint.')" class="c-hint-left" c-hint-hover></span>
+                </div>
+            </div>
+        </form>
+        <hr class="c-hr" />
+        <div>
+            <input type="button" class="button-green" value="Save" ng-click="save()"   ng-if="!model.BusinessSchema.IsCustom"  ng-disabled="!globalSchema.$valid || model.saving" /> 
+            <input type="button" class="button-green" value="Save" ng-click="saveCustom()" ng-if="model.BusinessSchema.IsCustom" ng-disabled="!customGlobalSchema.$valid" /> <span ng-bind-html="generateHint('Help text here.')" class="c-hint-left c-hint-top" c-hint-hover></span>
+            <input type="button" class="button-default" value="Close" ng-click="close()" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿<div ng-controller="collapsible.1902Seo.controller">
+
+   
+   
+    <label ng-if="model.showOgDetails" class="control-label ">
+        {{model.label}}
+
+        <span class="c-hint-left" c-hint-hover>
+            <span class="icon-c-hint"></span>
+            <span class="c-hint-content c-og-content">
+                    <span class="c-og-controlhint">
+                        {{tooltip}}
+                    </span>
+                <br />
+                <br />
+                    <div class="c-og-inner">
+                        <div class="c-og-img" style="background-image:url({{ogImage}})">
+
+                        </div>
+                        <div class="c-og-details">
+                            <span class="c-og-title">{{ogTitle}}</span>
+                            <span>{{ogUrl}}</span>
+                            <span>{{ogDescription}}</span>
+                        </div>
+                    </div>
+            </span>
+        </span>
+    </label>
+ 
+  
+
+    <div class="custom-max-editor-width">
+        <span class="btn umb-button__button c-accordion-right">
+
+            <span class="c-expand" ng-click="expand()">
+                Expand
+                <span ng-if="!model.isExpand" class="icon-c-down"></span>
+                <span ng-if="model.isExpand" class="icon-c-up"></span>
+            </span>
+        </span>
+    </div>
+</div>

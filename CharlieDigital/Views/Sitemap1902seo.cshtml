@@ -1,0 +1,68 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Seo1902.Core;
+@{Layout = null;
+    var rootNodes = Umbraco.ContentAtRoot()
+        .Where(x => !(x.ContentType.Alias == Settings.PackageXMlAlias || x.ContentType.Alias == Settings.PackageDocumentTypeAlias));
+}<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+    @if (rootNodes != null && rootNodes.Count() > 0)
+    {
+        foreach (var root in rootNodes)
+        {
+            @ListChildNodes(root, true);
+        }
+    }
+</urlset>
+@helper ListChildNodes(IPublishedContent startNode, bool isIncludeRoot = false)
+{
+    Response.ContentType = "text/xml";
+    const int maxLevelForSiteMap = 100;
+    var nodes = startNode.Children
+        .Where(n =>
+            n.TemplateId > 0 
+           )
+        .Select(n => n);
+
+    if (isIncludeRoot)
+    {
+        if ((!startNode.HasProperty(PageAliases.NoIndex) || !startNode.Value<bool>(PageAliases.NoIndex)))
+        {
+            var rootDynamicNode = startNode;
+            <url>
+                <loc>@HttpUtility.UrlEncode((((IPublishedContent)rootDynamicNode).UrlAbsolute())).Replace("%3a", ":").Replace("%2f", "/")</loc>
+                <lastmod>@rootDynamicNode.UpdateDate.ToString("s")+00:00</lastmod>
+                @if ((rootDynamicNode.Value<string>("siteMapChangeFrequency1902seo") ?? "") != "")
+                {<changefreq>@(rootDynamicNode.Value<string>("siteMapChangeFrequency1902seo"))</changefreq>}
+                @if ((rootDynamicNode.Value<string>("siteMapPriority1902Seo") ?? "") != "")
+                {<priority>@(rootDynamicNode.Value<string>("siteMapPriority1902Seo"))</priority>}
+            </url>
+        }
+    }
+
+
+    foreach (var node in nodes)
+    {
+        if (!node.HasProperty(PageAliases.NoIndex) || !node.Value<bool>(PageAliases.NoIndex))
+        {
+
+
+            <url>
+                <loc>@HttpUtility.UrlEncode((((IPublishedContent)node).UrlAbsolute())).Replace("%3a", ":").Replace("%2f", "/")</loc>
+                <lastmod>@node.UpdateDate.ToString("s")+00:00</lastmod>
+              @if((node.Value<string>("siteMapChangeFrequency1902seo") ?? "") != "")
+                {< changefreq >@(node.Value<string>("siteMapChangeFrequency1902seo")) </ changefreq >}
+                @if((node.Value<string>("siteMapPriority1902Seo") ?? "") != "")
+                {< priority >@(node.Value<string>("siteMapPriority1902Seo")) </ priority >}
+            </url>
+      
+        }
+
+        if (node.Level <= maxLevelForSiteMap)
+        {
+            @ListChildNodes(node)
+        }
+    }
+}

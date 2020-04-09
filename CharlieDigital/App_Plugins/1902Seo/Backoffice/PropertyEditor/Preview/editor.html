@@ -1,0 +1,39 @@
+﻿<div ng-controller="preview.1902Seo.controller">
+    <div class="custom-max-editor-width ">
+        <div ng-if="model.isCreate == false" class="custom-full-width">
+            <div class="preview-container">
+                <div>
+                    <a href="{{model.display.Url}}" target="_blank">
+                        <span class="preview-title">{{model.display.Title}}</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="{{model.display.Url}}" target="_blank">
+                        <span class='preview-url'>{{model.display.Url}}</span>
+                    </a>
+                </div>
+                <div>
+                    <p class="preview-description">{{model.display.Description}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div ng-if="model.isCreate == true" class="custom-full-width">
+            <div class="preview-container">
+                <div>
+                    <a href="{{model.actualUrl}}" target="_blank">
+                        <span class="preview-title">{{model.name}}</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="{{model.actualUrl}}" target="_blank">
+                        <span class='preview-url'>{{model.actualUrl}}</span>
+                    </a>
+                </div>
+                <div>
+                    <p class="preview-description">{{model.display.Description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

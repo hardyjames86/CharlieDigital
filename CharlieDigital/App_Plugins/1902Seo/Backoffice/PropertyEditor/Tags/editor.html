@@ -1,0 +1,25 @@
+﻿<div ng-controller="tags.1902Seo.controller">
+   <div class="umb-tags custom-max-editor-width c-tags p-relative">
+     
+       <div class="customFullPadded ">
+           <span ng-repeat="tag in model.tags" class="label label-primary tag">
+               <span ng-bind-html="tag"></span>
+               <button ng-click="removeTag(tag)" class="c-tag-button" c-disable-start>
+                   <i class="icon icon-delete"></i>
+               </button>
+           </span>
+
+
+           <input type="text"
+                  class="tags-{{model.alias}} c-tags-input"
+                  ng-model="model.inputedTag"
+                  ng-keydown="addTag($event)"
+                  on-blur="$parent.addTag()"
+                  localize="placeholder"
+                  placeholder="{{model.config.placeholder}}" c-disable-start />
+         
+          
+       </div>
+   </div>
+    <ul class="validator-picker-message"><li style="color:gray">{{model.config.note}}</li></ul>
+</div>

@@ -1,0 +1,22 @@
+﻿.validator-picker-counter {
+    font-size:13px;
+}
+
+.validator-picker-message {
+   list-style: none;
+}
+
+.validator-picker-message {
+    float:left;
+}
+
+.validator-picker-message li:before {
+    content: "•";
+    font-size: 25px;
+    padding-right: 5px;
+    top: 2px;
+    position: relative;
+    border : 5px solid;
+    border-radius:5px;
+}
+

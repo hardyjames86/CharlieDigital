@@ -1,0 +1,360 @@
+{
+  "propertyEditors": [
+    {
+      "alias": "tags.1902Seo",
+      "name": "1902 Seo Tags",
+      "icon": "icons-tags",
+      "group": "",
+      "editor": {
+        "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Tags/editor.html",
+        "valueType": "TEXT" 
+
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Hint",
+            "description": "",
+            "key": "hint",
+            "view": "textstring"
+          },
+          {
+            "label": "Placeholder",
+            "description": "",
+            "key": "placeholder",
+            "view": "textstring"
+          }
+          ,
+          {
+            "label": "Additional Note",
+            "description": "",
+            "key": "note",
+            "view": "textstring"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "preview.1902Seo",
+      "name": "1902 Seo Preview",
+      "icon": "icon-eye",
+      "group": "",
+      "editor": {
+        "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Preview/editor.html",
+        "valueType": "TEXT"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Hint",
+            "description": "",
+            "key": "hint",
+            "view": "textstring"
+          }
+        ]
+      }
+    },
+     {
+      "alias": "logo.1902Seo",
+      "name": "1902 Logo",
+      "icon": "icon-eye",
+      "group": "",
+      "editor": {
+        "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Logo1902/logo.html",
+        "valueType": "TEXT"
+      }
+    },
+    {
+      "alias": "summary.1902Seo",
+      "name": "1902 Seo Summary",
+      "icon": "icon-eye",
+      "group": "",
+      "editor": {
+        "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Summary/editor.html",
+        "valueType": "TEXT"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Keyword Hint",
+            "description": "",
+            "key": "keywordHint",
+          "view": "textstring"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "textInput.1902Seo",
+      "name": "1902 Text Input",
+      "isParameterEditor": true,
+      "group": "Pickers",
+      "icon": "icon-autofill",
+      "editor": {
+        "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/validatorpicker/validatorpicker.html",
+        "valueType": "TEXT"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Type",
+            "description": "",
+            "key": "validatortype",
+            "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/validatorpicker/prevalues/validatortype.html"
+          },
+          {
+            "label": "Placeholder",
+            "description": "",
+            "key": "placeHolder",
+            "view": "textstring"
+          },
+          {
+            "label": "Max Input",
+            "description": "",
+            "key": "maxInput",
+            "view": "~/App_Plugins/1902Seo/Backoffice/Prevalues/MaxInput/editor.html"
+          },
+          {
+            "label": "Show Character Count",
+            "description": "",
+            "key": "characterCount",
+            "view": "boolean"
+          },
+          {
+            "label": "Hide Default Label",
+            "description": "",
+            "key": "hideDefaultLabel",
+            "view": "boolean"
+          },
+
+          {
+            "label": "Custom Inner Label",
+            "description": "",
+            "key": "customInnerLabel",
+            "view": "textstring"
+          },
+          {
+            "label": "Custom Inner Hint",
+            "description": "",
+            "key": "customInnerHint",
+            "view": "textarea"
+          },
+          {
+            "label": "Rules",
+            "description": "",
+            "key": "ruletype",
+            "valueType": "JSON",
+            "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/validatorpicker/prevalues/ruletype.html"
+          },
+          {
+            "label": "Group",
+            "description": "",
+            "key": "group",
+            "view": "textstring"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "mediaPicker.1902Seo",
+      "name": "1902 Media Picker",
+      "icon": "icon-cloud-upload",
+      "group": "",
+      "editor": { "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/MediaPicker/editor.html","valueType": "TEXT" },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Start node",
+            "key": "startNodeId",
+            "view": "mediapicker"
+          },
+          {
+            "label": "Ideal Width",
+            "description": "1200",
+            "key": "idealWidth",
+            "view": "~/App_Plugins/1902Seo/Backoffice/Prevalues/MaxInput/editor.html"
+          },
+          {
+            "label": "Ideal Height",
+            "description": "630",
+            "key": "idealHeight",
+            "view": "~/App_Plugins/1902Seo/Backoffice/Prevalues/MaxInput/editor.html"
+          },
+          {
+            "label": "Hide Default Label",
+            "description": "",
+            "key": "hideDefaultLabel",
+            "view": "boolean"
+          },
+          {
+            "label": "Custom Inner Label",
+            "description": "",
+            "key": "customInnerLabel",
+            "view": "textstring"
+          },
+          {
+            "label": "Custom Inner Hint",
+            "description": "",
+            "key": "customInnerHint",
+            "view": "textstring"
+          },
+           {
+            "label": "Group",
+            "description": "",
+            "key": "group",
+            "view": "textstring"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "collapsible.1902Seo",
+      "name": "1902 Group Collapsible",
+      "icon": "icons-tags",
+      "group": "",
+      "editor": { "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Collapsible/editor.html" },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Group",
+            "description": "",
+            "key": "group",
+            "view": "textstring"
+          },
+          {
+            "label": "Default Expanded",
+            "description": "",
+            "key": "defaultExpanded",
+            "view": "boolean"
+          },
+          {
+            "label": "Show Open Graph",
+            "description": "This will enable display of Opengraph preview.",
+            "key": "showOgDetails",
+            "view": "boolean"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "clearControl.1902Seo",
+      "name": "1902 Clear Group ",
+      "icon": "icons-tags",
+      "group": "",
+      "editor": { "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/ClearGroup/editor.html" },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Group",
+            "description": "",
+            "key": "group",
+            "view": "textstring"
+          },
+          {
+            "label": "Button Text",
+            "description": "",
+            "key": "buttonText",
+            "view": "textstring"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "dropdown.1902Seo",
+      "name": "1902 Dropdown",
+      "icon": "icon-tags",
+      "group": "",
+      "editor": { "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Dropdown/editor.html","valueType": "TEXT" },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Add Prevalue",
+            "description": "",
+            "key": "items",
+            "view": "multivalues"
+          },
+          {
+            "label": "Hide Default Label",
+            "description": "",
+            "key": "hideDefaultLabel",
+            "view": "boolean"
+          },
+          {
+            "label": "Custom Inner Label",
+            "description": "",
+            "key": "customInnerLabel",
+            "view": "textstring"
+          },
+           {
+            "label": "Custom Inner Hint",
+            "description": "",
+            "key": "customInnerHint",
+            "view": "textstring"
+          },
+        
+          {
+            "label": "API Source",
+            "description": "",
+            "key": "enableApiSource",
+            "view": "boolean"
+          },
+          {
+             "label": "API Url",
+            "description": "",
+            "key": "customApiUrl",
+            "view": "textstring"
+          }
+
+        ]
+
+      }
+    },
+    {
+      "alias": "truefalse.1902Seo",
+      "name": "1902 True/False",
+      "icon": "icon-tags",
+      "group": "",
+      "editor": { "view": "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Boolean/editor.html","valueType": "TEXT" }
+    }
+  ],
+  "javascript": [
+    "~/App_Plugins/1902Seo/Scripts/missing.browsermethod.js",
+    "~/App_Plugins/1902Seo/Scripts/common.directive.js",
+    "~/App_Plugins/1902Seo/Scripts/common.factory.js",
+    "~/App_Plugins/1902Seo/Scripts/common.resource.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/validatorpicker/validatorpicker.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/validatorpicker/validatorpicker.directive.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/validatorpicker/prevalues/validatortype.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/validatorpicker/prevalues/ruletype.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Collapsible/collapsible.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/ClearGroup/clearGroup.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Dropdown/dropdown.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Dropdown/dropdown.resource.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Boolean/boolean.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/Prevalues/MaxInput/maxInput.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Tags/tags.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Preview/preview.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Summary/summary.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Logo1902/logo1902.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Logo1902/logo1902.resource.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Summary/summary.resource.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Summary/colorstatus.directive.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/MediaPicker/mediaPicker.controller.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/MediaPicker/mediaPicker.resource.js",
+    "~/App_Plugins/1902Seo/Backoffice/PropertyEditor/Preview/preview.resource.js",
+    "~/App_Plugins/1902Seo/Dashboard/scripts/controller.js",
+    "~/App_Plugins/1902Seo/Dashboard/scripts/resource.js",
+    "~/App_Plugins/1902Seo/Dashboard/scripts/directive.js"
+  ],
+  "css": [ "~/App_Plugins/1902Seo/css/style.css" ],
+  "dashboards": [
+    {
+      "alias": "1902SeoDashBoard",
+      "name" :  "1902 SEO+",
+      "view": "~/App_Plugins/1902Seo/Dashboard/1902SeoDashBoard.html",
+      "sections": [ "content" ],
+      "weight": 100
+    }
+  ]
+  
+}

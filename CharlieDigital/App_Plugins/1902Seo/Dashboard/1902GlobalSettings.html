@@ -1,0 +1,138 @@
+﻿<div ng-controller="seoDasgboardGlobalSettings.controller" ng-model="model">
+    <div ng-if="model.loading" class="loading-overlay">
+        <span class="loading-icon">
+            <img src="/App_Plugins/1902Seo/Images/loader.gif" />
+        </span>
+    </div>
+    <div class="c-global-modal-header">
+        <h3>
+            Global open graph values for {{model.LanguageDisplay}} <span ng-bind-html="generateHint('Open Graph lets you identify which elements from your page is displayed when it is shared on social media or similar sites. Usually, this includes a title, short description, and an image—all of which, when combined together, paint a visual representation of what your page is about. Here, you can set the default values for the Title, Description, and Image that will be displayed when any page from your site is shared to social media. If you want to set different values for a specific page, go to the Open Graph settings on the SEO+ tab of that page.')" class="c-hint-right c-hint-relative" c-hint-hover></span>
+        </h3>
+    </div>
+    <div class="c-global-settings-container">
+        <div>
+            <div>
+                <h4 class="c-global-header">Global Open Graph Image <span ng-bind-html="generateHint('This is the image that will be used by default when your site’s content is shared on social media, unless you upload a different image for a specific page. (Go to your page’s SEO+ Tab > Open Graph > Expand to manage open graph settings for that page)')" class="c-hint-right c-hint-relative" c-hint-hover></span></h4>
+                <div class="p-relative c-inline-block">
+                    <div class="c-media-container">
+                        <ul ng-model="model.images" class="add-link">
+                            <li style="overflow: auto;" ng-repeat="image in model.images">
+                                <div style="background-image:url({{image.thumbnail}})" class="c-media-img"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="f-left">
+                        <div class="custom-label-gray">
+                            <p>The maximum file size is {{model.imageMaxKbDisplay}} <span ng-bind-html="generateHint('The maximum file size set for this image is determined by your server configuration.')" class=" c-hint-right c-hint-relative" c-hint-hover></span></p>
+                            <p>The optimal image size is {{model.imageIdealWidth}} x {{model.imageIdealHeight}} px</p>
+                        </div>
+                        <div ng-if="!showAdd()" class="">
+                            <button ng-click="remove($index)" class="button-red">Remove</button>
+                            <button ng-click="add()" class="button-violet">Change Image</button>
+
+                        </div>
+                        <div ng-if="showAdd()">
+                            <span class="button-violet" ng-click="add()">
+                                Choose file...
+                            </span>
+                        </div>
+                        <div>
+                            <p class="c-warning f-size-12  c-m-top-10">
+                                {{model.warningMessage}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-grp-checkbox" style="display:none">
+                        <input type="checkbox" ng-checked="model.imageSetAsDefault" ng-model="model.imageSetAsDefault" class="c-checkbox" />
+                        <span class="c-small-label">Set as default open graph image</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <form name="Settings" class="c-form">
+            <div>
+                <h4 class="c-global-header">
+                    Open Graph <span ng-bind-html="generateHint('When a page from your site is shared on Facebook and other social media sites (except for Twitter and Google+), these will be the default content that will be displayed along with the image you have uploaded above. To set up different content for a specific page, go to the open graph settings on that page’s SEO tab.')" class="c-hint-left" c-hint-hover></span>
+                </h4>
+                <div>
+                    <label class="c-global-label">Title <span style="color:red">*</span></label>
+                    <div class="p-relative">
+                        <input name="ogTitle" type="text" ng-model="model.ogTitle" required="required" />
+                        <span ng-bind-html="generateHint('Set the default headline that appears in bold when your page is shared on Facebook and other social media sites (except for Twitter and Google+).')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Description <span style="color:red">*</span></label>
+                    <div class="p-relative">
+                        <textarea rows="5" type="text" ng-model="model.ogDescription" required="required"></textarea>
+                        <span ng-bind-html="generateHint('Set the snippet or brief preview of your page that appears below the OG Title when your page is shared on Facebook and other social media sites (except for Twitter and Google+).')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <h4 class="c-global-header">
+                    Twitter <span ng-bind-html="generateHint('When a page from your site is shared on Twitter, these will be the default content that will be displayed along with the image you have uploaded above. To set up different content for a specific page, go to the Twitter open graph settings on that page’s SEO tab.')" class="c-hint-left" c-hint-hover></span>
+                </h4>
+                <div>
+                    <label class="c-global-label">Title <span style="color:red">*</span></label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="model.twitterTitle" required="required" />
+                        <span ng-bind-html="generateHint('Set the default headline that appears when your page is shared on Twitter.')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Description <span style="color:red">*</span></label>
+                    <div class="p-relative">
+                        <textarea rows="5" type="text" ng-model="model.twitterDescription" required="required"></textarea>
+                        <span ng-bind-html="generateHint('Set the snippet or brief preview of your page that appears below the Twitter Title when your page is shared on Twitter.')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <h4 class="c-global-header">
+                    Google+ <span ng-bind-html="generateHint('When a page from your site is shared on Google+, these will be the default content that will be displayed along with the image you have uploaded above. To set up different content for a specific page, go to the Google+ open graph settings on that page’s SEO tab.')" class="c-hint-left" c-hint-hover></span>
+                </h4>
+                <div>
+                    <label class="c-global-label">Title <span style="color:red">*</span></label>
+                    <div class="p-relative">
+                        <input type="text" ng-model="model.googleTitle" required="required" />
+                        <span ng-bind-html="generateHint('Set the default headline that appears when your page is shared on Google+.')" class="c-hint-right" c-hint-hover></span>
+                    </div>
+                </div>
+                <div>
+                    <label class="c-global-label">Description <span style="color:red">*</span></label>
+                    <div class="p-relative">
+                        <textarea rows="5" type="text" ng-model="model.googleDescription" required="required"></textarea>
+                        <span ng-bind-html="generateHint('Set the snippet or brief preview of your page that appears below the Google+ Title when your page is shared on Google+. ')" class="c-hint-right c-hint-top" c-hint-hover></span>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <div ng-if="!model.hasMultipleLanguage">
+            <label>
+                <input type="checkbox" class="c-checkbox" ng-model="model.overWriteAll" ng-checked="model.overWriteAll" ng-click="applyAllVerify()"/>
+                Apply to all as default open graph
+            </label>
+        </div>
+        <div ng-if="model.hasMultipleLanguage">
+            <label>
+                <input type="checkbox" class="c-checkbox" disabled="disabled"/>
+                Apply to all as default open graph
+            </label>
+            <div class="custom-label-gray">
+                This is disabled, We detected an unsupported multilingual setup in your installation
+            </div>
+        </div>
+        <hr class="c-hr" />
+        <div>
+            <span ng-bind-html="generateHint('Set the default open graph settings for your site. If you checked &#34;Apply to all pages as default open graph&#34; above, this setting will override all the open graph values you may have set for specific pages on your site. Otherwise, this will only apply to pages with no custom open graph settings.')" class="c-hint-left c-hint-top c-m-right-5" c-hint-hover></span><input type="button" class=" button-green" value="Save" ng-click="save()" ng-disabled="!Settings.$valid || model.saving" />
+            <input type="button" class="button-default" value="Close" ng-click="close()" />
+        </div>
+    </div>
+</div>

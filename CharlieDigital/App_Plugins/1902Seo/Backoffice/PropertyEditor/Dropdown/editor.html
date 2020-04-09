@@ -1,0 +1,23 @@
+﻿<div ng-controller="dropdown.1902Seo.controller">
+    <div class="custom-max-editor-width p-relative">
+        <label class="c-label p-4-imp" ng-if="model.config.customInnerLabel != undefined && model.config.customInnerLabel != ''"> {{model.config.customInnerLabel}}
+            <span class="c-hint-left" ng-bind-html="model.rawHintHtml" c-hint-hover></span>
+        </label>
+        <div ng-class="{customLabelPadded : model.config.customInnerLabel != undefined && model.config.customInnerLabel != ''
+                  ,customFullPadded: model.config.customInnerLabel == ''||  model.config.customInnerLabel == undefined}"
+             >
+            <div class="p-relative">
+                <select name="dropDownList"
+                        ng-class="{cEditorDropdown : !model.config.enableApiSource}"
+                        ng-model="model.value"
+                        ng-options="item.value as item.value for item in model.dropdownItems"
+                        c-disable-start>
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div ng-if="model.alias == 'ldScriptBusiness1902Seo' && model.dropdownItems.length  == 0" class="c-padding-top-5 c-inline-block">
+            You have not set any local business schema yet. Go to the <a href="/umbraco?f=1902a" class="c-a-undelined c-pointer" target="_blank">1902 SEO+ dashboard</a> to add local business schema.
+</div>
+    </div>
+</div>

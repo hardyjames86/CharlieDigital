@@ -1,0 +1,84 @@
+﻿<div ng-controller="seoDashboardSchema.controller">
+    <div ng-if="model.loading" class="loading-overlay">
+        <span class="loading-icon">
+            <img src="/App_Plugins/1902Seo/Images/loader.gif" />
+        </span>
+    </div>
+    <div class="c-global-modal-header">
+        <h3 ng-if="model.Type == 1">
+          Organization/website schema
+        </h3>
+        <h3 ng-if="model.Type == 2">
+            Local business schema
+        </h3>
+    </div>
+    <div class="c-global-settings-container">
+            
+            <h4 class="c-global-header">
+                Schema
+            </h4>
+        <form name="frmSchema" class="c-form">
+            <div ng-if="model.Type == 2  && !model.IsAdd">
+                <div class="p-relative">
+                    <input type="button" value="Add New" class="button-violet" ng-click="addNew()">
+                </div>
+            </div>
+            <div ng-if="model.Type == 2  && !model.IsAdd" class="c-m-top-15">
+                <label class="c-global-label">Name <span class="c-required">*</span></label>
+                <div class="p-relative">
+                    <select name="dropDownListContactType" class="c-global-select "
+                            ng-model="model.SelectedLocalBusiness"
+                            ng-options="localbusiness as localbusiness  for localbusiness in model.LocalBusinesses"
+                            ng-change="dropdownChange()">
+                        <option value=""> -- Select local business --</option>
+                    </select>
+                </div>
+            </div>
+            <div ng-if="model.Type ==2 && model.IsAdd">
+                <label class="c-global-label">Name <span class="c-required">*</span></label>
+                <div class="p-relative">
+                    <input type="text" ng-model="model.Name" required="required" />
+                </div>
+            </div>
+            <div>
+                
+                <div ng-if="model.Type == 2">
+                    <label class="c-global-label"  ng-hide="(!model.IsAdd && (model.SelectedLocalBusiness == '' || model.SelectedLocalBusiness == undefined || model.SelectedLocalBusiness == null))">Script <span class="c-required">*</span></label>
+                    <textarea rows="10" type="text" ng-model="model.SchemaScript" required="required" ng-pattern="model.scriptPatern"
+                              ng-hide="(!model.IsAdd && (model.SelectedLocalBusiness == '' || model.SelectedLocalBusiness == undefined || model.SelectedLocalBusiness == null))"
+                              ></textarea>
+                </div>
+                
+                <div  ng-if="model.Type == 1" class="p-relative"> 
+                    <label class="c-global-label">Script <span class="c-required">*</span></label>
+                    <textarea rows="10" type="text" ng-model="model.SchemaScript" required="required" ng-pattern="model.scriptPatern"></textarea>
+                </div>
+            </div>
+            <div class="c-m-top-15" ng-if="model.Type == 1">
+               <span ng-if="model.IsUpdate">
+                   Need help building schema? <a class="c-a-undelined c-pointer" ng-click="needHelp()">Use the Schema Builder</a>.
+                   <span class="c-w-bold">Note</span>: The markup that you have made here will not be copied into the schema builder; you can either edit the script here or start over with the builder.
+                </span>
+                <span ng-if="!model.IsUpdate">
+                   Write your own script here using JSON-LD. Need help building schema? <a class="c-a-undelined c-pointer" ng-click="needHelp()">Use the Schema Builder</a>.
+
+                </span>
+            </div>
+            <div class="c-m-top-15" ng-if="model.Type == 2"  ng-hide="(!model.IsAdd && (model.SelectedLocalBusiness == '' || model.SelectedLocalBusiness == undefined || model.SelectedLocalBusiness == null))">
+                <span ng-if="model.IsAdd">
+                    Write your own script here using JSON-LD.
+                </span>
+                 Need help building schema? <a class="c-a-undelined c-pointer" ng-click="needHelp()">Use the Schema Builder</a>.
+                <span ng-if="!model.IsAdd &&  !(model.SelectedLocalBusiness == '' || model.SelectedLocalBusiness == undefined || model.SelectedLocalBusiness == null)">
+                    <span class="c-w-bold">Note</span>: The markup that you have made here will not be copied into the schema builder; you can either edit the script here or start over with the builder.
+                </span>
+            </div>
+          
+        </form>
+        <div>
+            <input type="button" class="button-green" value="Save" ng-click="save()"  ng-disabled="!frmSchema.$valid" />
+            <input type="button" class="button-default" value="Cancel" ng-click="cancelAddNew()" ng-if="model.IsAdd" />
+            <input type="button" class="button-default" value="Close" ng-click="close()" ng-if="!model.IsAdd" />
+      </div>
+    </div>
+</div>

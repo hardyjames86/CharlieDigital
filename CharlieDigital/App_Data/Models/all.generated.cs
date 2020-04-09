@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4cd852d79a19757c")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "ae2cad79e302fd8c")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -42,7 +42,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel
+	public partial class Home : PublishedContentModel, ISeoPackage1902
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -64,11 +64,179 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Canonical Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("canonicalUrl1902Seo")]
+		public object CanonicalUrl1902Seo => SeoPackage1902.GetCanonicalUrl1902Seo(this);
+
+		///<summary>
+		/// Clear Open Graph
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("clearOpenGraph1902Seo")]
+		public object ClearOpenGraph1902Seo => SeoPackage1902.GetClearOpenGraph1902Seo(this);
+
+		///<summary>
+		/// Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("description1902Seo")]
+		public object Description1902Seo => SeoPackage1902.GetDescription1902Seo(this);
+
+		///<summary>
+		/// Google+ Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleImage1902Seo")]
+		public object GoogleImage1902Seo => SeoPackage1902.GetGoogleImage1902Seo(this);
+
+		///<summary>
+		/// Google+ Description: This is a snippet or a brief preview of your page that appears below the Title when you share it on Google+.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleplusDescription1902Seo")]
+		public object GoogleplusDescription1902Seo => SeoPackage1902.GetGoogleplusDescription1902Seo(this);
+
+		///<summary>
+		/// Google+: When this page is shared on Google+, these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleplusTitle1902Seo")]
+		public object GoogleplusTitle1902Seo => SeoPackage1902.GetGoogleplusTitle1902Seo(this);
+
+		///<summary>
+		/// Keyword: Keywords refer to the search terms that you want your page to appear or rank for in search results (e.g., if you want your page to be found when a person searches for “Umbraco package”, you can set “Umbraco package” as your keyword).   Keywords  are not limited to one-word terms; they can also be phrases that you think your target visitor would search for. These keywords are set up so 1902 SEO+ can help you analyze your content and provide you suggestions on what you can improve based on the keywords you’ve chosen. They are not to be taken as a guarantee that your page will appear on search results when someone searches for your set keywords.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("keyword1902Seo")]
+		public object Keyword1902Seo => SeoPackage1902.GetKeyword1902Seo(this);
+
+		///<summary>
+		/// Schema
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ldScript1902Seo")]
+		public object LdScript1902Seo => SeoPackage1902.GetLdScript1902Seo(this);
+
+		///<summary>
+		/// Schema Business
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ldScriptBusiness1902Seo")]
+		public object LdScriptBusiness1902Seo => SeoPackage1902.GetLdScriptBusiness1902Seo(this);
+
+		///<summary>
+		/// 1902 Logo
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("logo1902Seo")]
+		public object Logo1902Seo => SeoPackage1902.GetLogo1902Seo(this);
+
+		///<summary>
+		/// No Follow: Check this box if you don’t want search engine crawlers to follow any outgoing links from this page. This means that you are not passing any “link juice” to the other sites or pages that you are linking to.   Link juice refers to the value that is passed from one site to another through hyperlinks. Basically, when you link to another site on your page (and that page is set to be followed), the search engines view the link as a vote or endorsement from your site that the page you are linking to is valuable.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("noFollow1902Seo")]
+		public object NoFollow1902Seo => SeoPackage1902.GetNoFollow1902Seo(this);
+
+		///<summary>
+		/// No Index: Check this box if you don’t want this page to be indexed by search engines, that is, search engines will not include this particular page in search results.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("noIndex1902Seo")]
+		public object NoIndex1902Seo => SeoPackage1902.GetNoIndex1902Seo(this);
+
+		///<summary>
+		/// Og Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogDescription1902Seo")]
+		public object OgDescription1902Seo => SeoPackage1902.GetOgDescription1902Seo(this);
+
+		///<summary>
+		/// Og Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogImage1902Seo")]
+		public object OgImage1902Seo => SeoPackage1902.GetOgImage1902Seo(this);
+
+		///<summary>
+		/// Open Graph Settings: When this page is shared on Facebook and other social media sites (except for Twitter and Google+), these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogTitle1902Seo")]
+		public object OgTitle1902Seo => SeoPackage1902.GetOgTitle1902Seo(this);
+
+		///<summary>
+		/// Open Graph: Open Graph lets you identify which elements from your page is displayed when it is shared on social media or similar sites. Usually, this includes a title, short description, and an image—all of which, when combined together, paint a visual representation of what your page is about. If you have set default values on the Global Open Graph settings on the SEO+ dashboard, those values will be automatically applied to this page as well. Here, you can override the default values and set up the specific open graph values for this page.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("openGraphCollapse1902Seo")]
+		public object OpenGraphCollapse1902Seo => SeoPackage1902.GetOpenGraphCollapse1902Seo(this);
+
+		///<summary>
+		/// Preview: This is how your page might look like when it appears on search results. Note that it might appear differently in certain cases, but generally, this is what you can expect your potential visitors to see when they see your page on search engines.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("preview1902Seo")]
+		public object Preview1902Seo => SeoPackage1902.GetPreview1902Seo(this);
+
+		///<summary>
+		/// Site Map: A site map is a list of the URLs within your pages that you want to be indexed. This helps search engines crawl your site better and follow the links within your site easily.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("siteMapChangeFrequency1902seo")]
+		public object SiteMapChangeFrequency1902seo => SeoPackage1902.GetSiteMapChangeFrequency1902seo(this);
+
+		///<summary>
+		/// Priority
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("siteMapPriority1902Seo")]
+		public object SiteMapPriority1902Seo => SeoPackage1902.GetSiteMapPriority1902Seo(this);
+
+		///<summary>
+		/// Summary: This is a detailed review of your page in terms of SEO and performance. Click on “Expand” to view the complete analysis and recommendations. The most important issues to fix are in red, but also pay attention to the suggestions in yellow for further improvements on your SEO
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("summary1902Seo")]
+		public object Summary1902Seo => SeoPackage1902.GetSummary1902Seo(this);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("title1902Seo")]
+		public object Title1902Seo => SeoPackage1902.GetTitle1902Seo(this);
+
+		///<summary>
+		/// Twitter Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterDescription1902Seo")]
+		public object TwitterDescription1902Seo => SeoPackage1902.GetTwitterDescription1902Seo(this);
+
+		///<summary>
+		/// Twitter Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterImage1902Seo")]
+		public object TwitterImage1902Seo => SeoPackage1902.GetTwitterImage1902Seo(this);
+
+		///<summary>
+		/// Twitter: When this page is shared on Twitter, these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterTitle1902Seo")]
+		public object TwitterTitle1902Seo => SeoPackage1902.GetTwitterTitle1902Seo(this);
 	}
 
 	/// <summary>News Article</summary>
 	[PublishedModel("newsArticle")]
-	public partial class NewsArticle : PublishedContentModel, IBasicPageControls
+	public partial class NewsArticle : PublishedContentModel, IBasicPageControls, ISeoPackage1902
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -146,11 +314,179 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle => BasicPageControls.GetPageTitle(this);
+
+		///<summary>
+		/// Canonical Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("canonicalUrl1902Seo")]
+		public object CanonicalUrl1902Seo => SeoPackage1902.GetCanonicalUrl1902Seo(this);
+
+		///<summary>
+		/// Clear Open Graph
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("clearOpenGraph1902Seo")]
+		public object ClearOpenGraph1902Seo => SeoPackage1902.GetClearOpenGraph1902Seo(this);
+
+		///<summary>
+		/// Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("description1902Seo")]
+		public object Description1902Seo => SeoPackage1902.GetDescription1902Seo(this);
+
+		///<summary>
+		/// Google+ Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleImage1902Seo")]
+		public object GoogleImage1902Seo => SeoPackage1902.GetGoogleImage1902Seo(this);
+
+		///<summary>
+		/// Google+ Description: This is a snippet or a brief preview of your page that appears below the Title when you share it on Google+.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleplusDescription1902Seo")]
+		public object GoogleplusDescription1902Seo => SeoPackage1902.GetGoogleplusDescription1902Seo(this);
+
+		///<summary>
+		/// Google+: When this page is shared on Google+, these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleplusTitle1902Seo")]
+		public object GoogleplusTitle1902Seo => SeoPackage1902.GetGoogleplusTitle1902Seo(this);
+
+		///<summary>
+		/// Keyword: Keywords refer to the search terms that you want your page to appear or rank for in search results (e.g., if you want your page to be found when a person searches for “Umbraco package”, you can set “Umbraco package” as your keyword).   Keywords  are not limited to one-word terms; they can also be phrases that you think your target visitor would search for. These keywords are set up so 1902 SEO+ can help you analyze your content and provide you suggestions on what you can improve based on the keywords you’ve chosen. They are not to be taken as a guarantee that your page will appear on search results when someone searches for your set keywords.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("keyword1902Seo")]
+		public object Keyword1902Seo => SeoPackage1902.GetKeyword1902Seo(this);
+
+		///<summary>
+		/// Schema
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ldScript1902Seo")]
+		public object LdScript1902Seo => SeoPackage1902.GetLdScript1902Seo(this);
+
+		///<summary>
+		/// Schema Business
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ldScriptBusiness1902Seo")]
+		public object LdScriptBusiness1902Seo => SeoPackage1902.GetLdScriptBusiness1902Seo(this);
+
+		///<summary>
+		/// 1902 Logo
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("logo1902Seo")]
+		public object Logo1902Seo => SeoPackage1902.GetLogo1902Seo(this);
+
+		///<summary>
+		/// No Follow: Check this box if you don’t want search engine crawlers to follow any outgoing links from this page. This means that you are not passing any “link juice” to the other sites or pages that you are linking to.   Link juice refers to the value that is passed from one site to another through hyperlinks. Basically, when you link to another site on your page (and that page is set to be followed), the search engines view the link as a vote or endorsement from your site that the page you are linking to is valuable.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("noFollow1902Seo")]
+		public object NoFollow1902Seo => SeoPackage1902.GetNoFollow1902Seo(this);
+
+		///<summary>
+		/// No Index: Check this box if you don’t want this page to be indexed by search engines, that is, search engines will not include this particular page in search results.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("noIndex1902Seo")]
+		public object NoIndex1902Seo => SeoPackage1902.GetNoIndex1902Seo(this);
+
+		///<summary>
+		/// Og Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogDescription1902Seo")]
+		public object OgDescription1902Seo => SeoPackage1902.GetOgDescription1902Seo(this);
+
+		///<summary>
+		/// Og Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogImage1902Seo")]
+		public object OgImage1902Seo => SeoPackage1902.GetOgImage1902Seo(this);
+
+		///<summary>
+		/// Open Graph Settings: When this page is shared on Facebook and other social media sites (except for Twitter and Google+), these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogTitle1902Seo")]
+		public object OgTitle1902Seo => SeoPackage1902.GetOgTitle1902Seo(this);
+
+		///<summary>
+		/// Open Graph: Open Graph lets you identify which elements from your page is displayed when it is shared on social media or similar sites. Usually, this includes a title, short description, and an image—all of which, when combined together, paint a visual representation of what your page is about. If you have set default values on the Global Open Graph settings on the SEO+ dashboard, those values will be automatically applied to this page as well. Here, you can override the default values and set up the specific open graph values for this page.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("openGraphCollapse1902Seo")]
+		public object OpenGraphCollapse1902Seo => SeoPackage1902.GetOpenGraphCollapse1902Seo(this);
+
+		///<summary>
+		/// Preview: This is how your page might look like when it appears on search results. Note that it might appear differently in certain cases, but generally, this is what you can expect your potential visitors to see when they see your page on search engines.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("preview1902Seo")]
+		public object Preview1902Seo => SeoPackage1902.GetPreview1902Seo(this);
+
+		///<summary>
+		/// Site Map: A site map is a list of the URLs within your pages that you want to be indexed. This helps search engines crawl your site better and follow the links within your site easily.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("siteMapChangeFrequency1902seo")]
+		public object SiteMapChangeFrequency1902seo => SeoPackage1902.GetSiteMapChangeFrequency1902seo(this);
+
+		///<summary>
+		/// Priority
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("siteMapPriority1902Seo")]
+		public object SiteMapPriority1902Seo => SeoPackage1902.GetSiteMapPriority1902Seo(this);
+
+		///<summary>
+		/// Summary: This is a detailed review of your page in terms of SEO and performance. Click on “Expand” to view the complete analysis and recommendations. The most important issues to fix are in red, but also pay attention to the suggestions in yellow for further improvements on your SEO
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("summary1902Seo")]
+		public object Summary1902Seo => SeoPackage1902.GetSummary1902Seo(this);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("title1902Seo")]
+		public object Title1902Seo => SeoPackage1902.GetTitle1902Seo(this);
+
+		///<summary>
+		/// Twitter Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterDescription1902Seo")]
+		public object TwitterDescription1902Seo => SeoPackage1902.GetTwitterDescription1902Seo(this);
+
+		///<summary>
+		/// Twitter Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterImage1902Seo")]
+		public object TwitterImage1902Seo => SeoPackage1902.GetTwitterImage1902Seo(this);
+
+		///<summary>
+		/// Twitter: When this page is shared on Twitter, these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterTitle1902Seo")]
+		public object TwitterTitle1902Seo => SeoPackage1902.GetTwitterTitle1902Seo(this);
 	}
 
 	/// <summary>News List</summary>
 	[PublishedModel("newsList")]
-	public partial class NewsList : PublishedContentModel, IBasicPageControls
+	public partial class NewsList : PublishedContentModel, IBasicPageControls, ISeoPackage1902
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -186,6 +522,174 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("pageTitle")]
 		public string PageTitle => BasicPageControls.GetPageTitle(this);
+
+		///<summary>
+		/// Canonical Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("canonicalUrl1902Seo")]
+		public object CanonicalUrl1902Seo => SeoPackage1902.GetCanonicalUrl1902Seo(this);
+
+		///<summary>
+		/// Clear Open Graph
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("clearOpenGraph1902Seo")]
+		public object ClearOpenGraph1902Seo => SeoPackage1902.GetClearOpenGraph1902Seo(this);
+
+		///<summary>
+		/// Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("description1902Seo")]
+		public object Description1902Seo => SeoPackage1902.GetDescription1902Seo(this);
+
+		///<summary>
+		/// Google+ Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleImage1902Seo")]
+		public object GoogleImage1902Seo => SeoPackage1902.GetGoogleImage1902Seo(this);
+
+		///<summary>
+		/// Google+ Description: This is a snippet or a brief preview of your page that appears below the Title when you share it on Google+.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleplusDescription1902Seo")]
+		public object GoogleplusDescription1902Seo => SeoPackage1902.GetGoogleplusDescription1902Seo(this);
+
+		///<summary>
+		/// Google+: When this page is shared on Google+, these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleplusTitle1902Seo")]
+		public object GoogleplusTitle1902Seo => SeoPackage1902.GetGoogleplusTitle1902Seo(this);
+
+		///<summary>
+		/// Keyword: Keywords refer to the search terms that you want your page to appear or rank for in search results (e.g., if you want your page to be found when a person searches for “Umbraco package”, you can set “Umbraco package” as your keyword).   Keywords  are not limited to one-word terms; they can also be phrases that you think your target visitor would search for. These keywords are set up so 1902 SEO+ can help you analyze your content and provide you suggestions on what you can improve based on the keywords you’ve chosen. They are not to be taken as a guarantee that your page will appear on search results when someone searches for your set keywords.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("keyword1902Seo")]
+		public object Keyword1902Seo => SeoPackage1902.GetKeyword1902Seo(this);
+
+		///<summary>
+		/// Schema
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ldScript1902Seo")]
+		public object LdScript1902Seo => SeoPackage1902.GetLdScript1902Seo(this);
+
+		///<summary>
+		/// Schema Business
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ldScriptBusiness1902Seo")]
+		public object LdScriptBusiness1902Seo => SeoPackage1902.GetLdScriptBusiness1902Seo(this);
+
+		///<summary>
+		/// 1902 Logo
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("logo1902Seo")]
+		public object Logo1902Seo => SeoPackage1902.GetLogo1902Seo(this);
+
+		///<summary>
+		/// No Follow: Check this box if you don’t want search engine crawlers to follow any outgoing links from this page. This means that you are not passing any “link juice” to the other sites or pages that you are linking to.   Link juice refers to the value that is passed from one site to another through hyperlinks. Basically, when you link to another site on your page (and that page is set to be followed), the search engines view the link as a vote or endorsement from your site that the page you are linking to is valuable.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("noFollow1902Seo")]
+		public object NoFollow1902Seo => SeoPackage1902.GetNoFollow1902Seo(this);
+
+		///<summary>
+		/// No Index: Check this box if you don’t want this page to be indexed by search engines, that is, search engines will not include this particular page in search results.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("noIndex1902Seo")]
+		public object NoIndex1902Seo => SeoPackage1902.GetNoIndex1902Seo(this);
+
+		///<summary>
+		/// Og Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogDescription1902Seo")]
+		public object OgDescription1902Seo => SeoPackage1902.GetOgDescription1902Seo(this);
+
+		///<summary>
+		/// Og Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogImage1902Seo")]
+		public object OgImage1902Seo => SeoPackage1902.GetOgImage1902Seo(this);
+
+		///<summary>
+		/// Open Graph Settings: When this page is shared on Facebook and other social media sites (except for Twitter and Google+), these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogTitle1902Seo")]
+		public object OgTitle1902Seo => SeoPackage1902.GetOgTitle1902Seo(this);
+
+		///<summary>
+		/// Open Graph: Open Graph lets you identify which elements from your page is displayed when it is shared on social media or similar sites. Usually, this includes a title, short description, and an image—all of which, when combined together, paint a visual representation of what your page is about. If you have set default values on the Global Open Graph settings on the SEO+ dashboard, those values will be automatically applied to this page as well. Here, you can override the default values and set up the specific open graph values for this page.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("openGraphCollapse1902Seo")]
+		public object OpenGraphCollapse1902Seo => SeoPackage1902.GetOpenGraphCollapse1902Seo(this);
+
+		///<summary>
+		/// Preview: This is how your page might look like when it appears on search results. Note that it might appear differently in certain cases, but generally, this is what you can expect your potential visitors to see when they see your page on search engines.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("preview1902Seo")]
+		public object Preview1902Seo => SeoPackage1902.GetPreview1902Seo(this);
+
+		///<summary>
+		/// Site Map: A site map is a list of the URLs within your pages that you want to be indexed. This helps search engines crawl your site better and follow the links within your site easily.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("siteMapChangeFrequency1902seo")]
+		public object SiteMapChangeFrequency1902seo => SeoPackage1902.GetSiteMapChangeFrequency1902seo(this);
+
+		///<summary>
+		/// Priority
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("siteMapPriority1902Seo")]
+		public object SiteMapPriority1902Seo => SeoPackage1902.GetSiteMapPriority1902Seo(this);
+
+		///<summary>
+		/// Summary: This is a detailed review of your page in terms of SEO and performance. Click on “Expand” to view the complete analysis and recommendations. The most important issues to fix are in red, but also pay attention to the suggestions in yellow for further improvements on your SEO
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("summary1902Seo")]
+		public object Summary1902Seo => SeoPackage1902.GetSummary1902Seo(this);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("title1902Seo")]
+		public object Title1902Seo => SeoPackage1902.GetTitle1902Seo(this);
+
+		///<summary>
+		/// Twitter Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterDescription1902Seo")]
+		public object TwitterDescription1902Seo => SeoPackage1902.GetTwitterDescription1902Seo(this);
+
+		///<summary>
+		/// Twitter Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterImage1902Seo")]
+		public object TwitterImage1902Seo => SeoPackage1902.GetTwitterImage1902Seo(this);
+
+		///<summary>
+		/// Twitter: When this page is shared on Twitter, these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterTitle1902Seo")]
+		public object TwitterTitle1902Seo => SeoPackage1902.GetTwitterTitle1902Seo(this);
 	}
 
 	// Mixin Content Type with alias "basicPageControls"
@@ -247,6 +751,423 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Page Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		public static string GetPageTitle(IBasicPageControls that) => that.Value<string>("pageTitle");
+	}
+
+	// Mixin Content Type with alias "seoPackage1902"
+	/// <summary>1902 SEO</summary>
+	public partial interface ISeoPackage1902 : IPublishedContent
+	{
+		/// <summary>Canonical Url</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object CanonicalUrl1902Seo { get; }
+
+		/// <summary>Clear Open Graph</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object ClearOpenGraph1902Seo { get; }
+
+		/// <summary>Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object Description1902Seo { get; }
+
+		/// <summary>Google+ Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object GoogleImage1902Seo { get; }
+
+		/// <summary>Google+ Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object GoogleplusDescription1902Seo { get; }
+
+		/// <summary>Google+</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object GoogleplusTitle1902Seo { get; }
+
+		/// <summary>Keyword</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object Keyword1902Seo { get; }
+
+		/// <summary>Schema</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object LdScript1902Seo { get; }
+
+		/// <summary>Schema Business</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object LdScriptBusiness1902Seo { get; }
+
+		/// <summary>1902 Logo</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object Logo1902Seo { get; }
+
+		/// <summary>No Follow</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object NoFollow1902Seo { get; }
+
+		/// <summary>No Index</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object NoIndex1902Seo { get; }
+
+		/// <summary>Og Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object OgDescription1902Seo { get; }
+
+		/// <summary>Og Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object OgImage1902Seo { get; }
+
+		/// <summary>Open Graph Settings</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object OgTitle1902Seo { get; }
+
+		/// <summary>Open Graph</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object OpenGraphCollapse1902Seo { get; }
+
+		/// <summary>Preview</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object Preview1902Seo { get; }
+
+		/// <summary>Site Map</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object SiteMapChangeFrequency1902seo { get; }
+
+		/// <summary>Priority</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object SiteMapPriority1902Seo { get; }
+
+		/// <summary>Summary</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object Summary1902Seo { get; }
+
+		/// <summary>Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object Title1902Seo { get; }
+
+		/// <summary>Twitter Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object TwitterDescription1902Seo { get; }
+
+		/// <summary>Twitter Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object TwitterImage1902Seo { get; }
+
+		/// <summary>Twitter</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		object TwitterTitle1902Seo { get; }
+	}
+
+	/// <summary>1902 SEO</summary>
+	[PublishedModel("seoPackage1902")]
+	public partial class SeoPackage1902 : PublishedContentModel, ISeoPackage1902
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "seoPackage1902";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SeoPackage1902, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public SeoPackage1902(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
+
+		///<summary>
+		/// Canonical Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("canonicalUrl1902Seo")]
+		public object CanonicalUrl1902Seo => GetCanonicalUrl1902Seo(this);
+
+		/// <summary>Static getter for Canonical Url</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetCanonicalUrl1902Seo(ISeoPackage1902 that) => that.Value("canonicalUrl1902Seo");
+
+		///<summary>
+		/// Clear Open Graph
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("clearOpenGraph1902Seo")]
+		public object ClearOpenGraph1902Seo => GetClearOpenGraph1902Seo(this);
+
+		/// <summary>Static getter for Clear Open Graph</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetClearOpenGraph1902Seo(ISeoPackage1902 that) => that.Value("clearOpenGraph1902Seo");
+
+		///<summary>
+		/// Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("description1902Seo")]
+		public object Description1902Seo => GetDescription1902Seo(this);
+
+		/// <summary>Static getter for Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetDescription1902Seo(ISeoPackage1902 that) => that.Value("description1902Seo");
+
+		///<summary>
+		/// Google+ Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleImage1902Seo")]
+		public object GoogleImage1902Seo => GetGoogleImage1902Seo(this);
+
+		/// <summary>Static getter for Google+ Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetGoogleImage1902Seo(ISeoPackage1902 that) => that.Value("googleImage1902Seo");
+
+		///<summary>
+		/// Google+ Description: This is a snippet or a brief preview of your page that appears below the Title when you share it on Google+.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleplusDescription1902Seo")]
+		public object GoogleplusDescription1902Seo => GetGoogleplusDescription1902Seo(this);
+
+		/// <summary>Static getter for Google+ Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetGoogleplusDescription1902Seo(ISeoPackage1902 that) => that.Value("googleplusDescription1902Seo");
+
+		///<summary>
+		/// Google+: When this page is shared on Google+, these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("googleplusTitle1902Seo")]
+		public object GoogleplusTitle1902Seo => GetGoogleplusTitle1902Seo(this);
+
+		/// <summary>Static getter for Google+</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetGoogleplusTitle1902Seo(ISeoPackage1902 that) => that.Value("googleplusTitle1902Seo");
+
+		///<summary>
+		/// Keyword: Keywords refer to the search terms that you want your page to appear or rank for in search results (e.g., if you want your page to be found when a person searches for “Umbraco package”, you can set “Umbraco package” as your keyword).   Keywords  are not limited to one-word terms; they can also be phrases that you think your target visitor would search for. These keywords are set up so 1902 SEO+ can help you analyze your content and provide you suggestions on what you can improve based on the keywords you’ve chosen. They are not to be taken as a guarantee that your page will appear on search results when someone searches for your set keywords.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("keyword1902Seo")]
+		public object Keyword1902Seo => GetKeyword1902Seo(this);
+
+		/// <summary>Static getter for Keyword</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetKeyword1902Seo(ISeoPackage1902 that) => that.Value("keyword1902Seo");
+
+		///<summary>
+		/// Schema
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ldScript1902Seo")]
+		public object LdScript1902Seo => GetLdScript1902Seo(this);
+
+		/// <summary>Static getter for Schema</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetLdScript1902Seo(ISeoPackage1902 that) => that.Value("ldScript1902Seo");
+
+		///<summary>
+		/// Schema Business
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ldScriptBusiness1902Seo")]
+		public object LdScriptBusiness1902Seo => GetLdScriptBusiness1902Seo(this);
+
+		/// <summary>Static getter for Schema Business</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetLdScriptBusiness1902Seo(ISeoPackage1902 that) => that.Value("ldScriptBusiness1902Seo");
+
+		///<summary>
+		/// 1902 Logo
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("logo1902Seo")]
+		public object Logo1902Seo => GetLogo1902Seo(this);
+
+		/// <summary>Static getter for 1902 Logo</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetLogo1902Seo(ISeoPackage1902 that) => that.Value("logo1902Seo");
+
+		///<summary>
+		/// No Follow: Check this box if you don’t want search engine crawlers to follow any outgoing links from this page. This means that you are not passing any “link juice” to the other sites or pages that you are linking to.   Link juice refers to the value that is passed from one site to another through hyperlinks. Basically, when you link to another site on your page (and that page is set to be followed), the search engines view the link as a vote or endorsement from your site that the page you are linking to is valuable.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("noFollow1902Seo")]
+		public object NoFollow1902Seo => GetNoFollow1902Seo(this);
+
+		/// <summary>Static getter for No Follow</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetNoFollow1902Seo(ISeoPackage1902 that) => that.Value("noFollow1902Seo");
+
+		///<summary>
+		/// No Index: Check this box if you don’t want this page to be indexed by search engines, that is, search engines will not include this particular page in search results.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("noIndex1902Seo")]
+		public object NoIndex1902Seo => GetNoIndex1902Seo(this);
+
+		/// <summary>Static getter for No Index</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetNoIndex1902Seo(ISeoPackage1902 that) => that.Value("noIndex1902Seo");
+
+		///<summary>
+		/// Og Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogDescription1902Seo")]
+		public object OgDescription1902Seo => GetOgDescription1902Seo(this);
+
+		/// <summary>Static getter for Og Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetOgDescription1902Seo(ISeoPackage1902 that) => that.Value("ogDescription1902Seo");
+
+		///<summary>
+		/// Og Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogImage1902Seo")]
+		public object OgImage1902Seo => GetOgImage1902Seo(this);
+
+		/// <summary>Static getter for Og Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetOgImage1902Seo(ISeoPackage1902 that) => that.Value("ogImage1902Seo");
+
+		///<summary>
+		/// Open Graph Settings: When this page is shared on Facebook and other social media sites (except for Twitter and Google+), these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("ogTitle1902Seo")]
+		public object OgTitle1902Seo => GetOgTitle1902Seo(this);
+
+		/// <summary>Static getter for Open Graph Settings</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetOgTitle1902Seo(ISeoPackage1902 that) => that.Value("ogTitle1902Seo");
+
+		///<summary>
+		/// Open Graph: Open Graph lets you identify which elements from your page is displayed when it is shared on social media or similar sites. Usually, this includes a title, short description, and an image—all of which, when combined together, paint a visual representation of what your page is about. If you have set default values on the Global Open Graph settings on the SEO+ dashboard, those values will be automatically applied to this page as well. Here, you can override the default values and set up the specific open graph values for this page.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("openGraphCollapse1902Seo")]
+		public object OpenGraphCollapse1902Seo => GetOpenGraphCollapse1902Seo(this);
+
+		/// <summary>Static getter for Open Graph</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetOpenGraphCollapse1902Seo(ISeoPackage1902 that) => that.Value("openGraphCollapse1902Seo");
+
+		///<summary>
+		/// Preview: This is how your page might look like when it appears on search results. Note that it might appear differently in certain cases, but generally, this is what you can expect your potential visitors to see when they see your page on search engines.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("preview1902Seo")]
+		public object Preview1902Seo => GetPreview1902Seo(this);
+
+		/// <summary>Static getter for Preview</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetPreview1902Seo(ISeoPackage1902 that) => that.Value("preview1902Seo");
+
+		///<summary>
+		/// Site Map: A site map is a list of the URLs within your pages that you want to be indexed. This helps search engines crawl your site better and follow the links within your site easily.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("siteMapChangeFrequency1902seo")]
+		public object SiteMapChangeFrequency1902seo => GetSiteMapChangeFrequency1902seo(this);
+
+		/// <summary>Static getter for Site Map</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetSiteMapChangeFrequency1902seo(ISeoPackage1902 that) => that.Value("siteMapChangeFrequency1902seo");
+
+		///<summary>
+		/// Priority
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("siteMapPriority1902Seo")]
+		public object SiteMapPriority1902Seo => GetSiteMapPriority1902Seo(this);
+
+		/// <summary>Static getter for Priority</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetSiteMapPriority1902Seo(ISeoPackage1902 that) => that.Value("siteMapPriority1902Seo");
+
+		///<summary>
+		/// Summary: This is a detailed review of your page in terms of SEO and performance. Click on “Expand” to view the complete analysis and recommendations. The most important issues to fix are in red, but also pay attention to the suggestions in yellow for further improvements on your SEO
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("summary1902Seo")]
+		public object Summary1902Seo => GetSummary1902Seo(this);
+
+		/// <summary>Static getter for Summary</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetSummary1902Seo(ISeoPackage1902 that) => that.Value("summary1902Seo");
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("title1902Seo")]
+		public object Title1902Seo => GetTitle1902Seo(this);
+
+		/// <summary>Static getter for Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetTitle1902Seo(ISeoPackage1902 that) => that.Value("title1902Seo");
+
+		///<summary>
+		/// Twitter Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterDescription1902Seo")]
+		public object TwitterDescription1902Seo => GetTwitterDescription1902Seo(this);
+
+		/// <summary>Static getter for Twitter Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetTwitterDescription1902Seo(ISeoPackage1902 that) => that.Value("twitterDescription1902Seo");
+
+		///<summary>
+		/// Twitter Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterImage1902Seo")]
+		public object TwitterImage1902Seo => GetTwitterImage1902Seo(this);
+
+		/// <summary>Static getter for Twitter Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetTwitterImage1902Seo(ISeoPackage1902 that) => that.Value("twitterImage1902Seo");
+
+		///<summary>
+		/// Twitter: When this page is shared on Twitter, these will be the default content that will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("twitterTitle1902Seo")]
+		public object TwitterTitle1902Seo => GetTwitterTitle1902Seo(this);
+
+		/// <summary>Static getter for Twitter</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static object GetTwitterTitle1902Seo(ISeoPackage1902 that) => that.Value("twitterTitle1902Seo");
+	}
+
+	/// <summary>1902 SEO Sitemap</summary>
+	[PublishedModel("seoPackage1902Sitemap")]
+	public partial class SeoPackage1902Sitemap : PublishedContentModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const string ModelTypeAlias = "seoPackage1902Sitemap";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public new static IPublishedContentType GetModelContentType()
+			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SeoPackage1902Sitemap, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+#pragma warning restore 0109
+
+		// ctor
+		public SeoPackage1902Sitemap(IPublishedContent content)
+			: base(content)
+		{ }
+
+		// properties
 	}
 
 	/// <summary>Folder</summary>

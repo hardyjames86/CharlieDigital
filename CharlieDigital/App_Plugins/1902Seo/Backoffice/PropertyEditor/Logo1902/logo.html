@@ -1,0 +1,47 @@
+﻿<div ng-controller="logo.1902Seo.controller" class="c-relative">
+    <div class="c-row c-p-bottom-20" ng-if="!model.verify.isActivated">
+        <div class="c-12 c-verify-banner">
+            <div class="c-verify-inner">
+                Get updates on version changes, fixes, new releases, and other news on 1902 SEO+. <a class="c-a-undelined c-pointer c-w-bold"  href="/umbraco#/umbraco?f=1902" target="_blank"  c-disable-start>Subscribe to 1902 Software’s Umbraco newsletter »</a>
+            </div>
+        </div>
+    </div>
+    <div class="c-row" ng-class="{cNotActivated : !model.verify.isActivated}"  >
+        <div class="c-4 c-1902-banner">
+            <div class="logo-1902-horizontal">
+                <img src="/App_Plugins/1902Seo/Images/logo-1902-seo-plus.svg" />
+            </div>
+        </div>
+        <div class="c-8 c-display-t c-1902-banner">
+            <div class="c-1902-banner-text c-display-tc c-v-middle">
+                <div>
+                    <div class="c-w-bold">
+                        We’ve got more Umbraco solutions that could help you.
+                    </div>
+                    <div class="c-text-s-12">
+                        1902 offers end-to-end Umbraco solutions from design to development and day-to-day support.
+                    </div>
+                </div>
+                <div>
+                    <a href="https://1902software.com/contact-us/ " class="c-contact-us-btn  button-dark-green c-a-unstyled" target="_blank">
+                        Contact us today
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c-row c-border-bottom" ng-if="!model.startup.isEnabled">
+            <div class="c-12 c-m-top-10 c-padding-top-10 c-border-top">
+                <div class="c-m-bottom-15">
+                    1902 SEO+ is currently <span class="c-f-red">disabled</span>. The features below will not be accessible unless you enable the package. 
+                 </div>
+                 <div class="c-m-bottom-15">
+                     Make sure that you have removed existing SEO tags from your website before enabling the package through <a class="c-a-undelined" href="/umbraco#/umbraco?f=1902a" target="_blank">1902 SEO+ dashboard.</a>
+                 </div>
+                 <div class="c-m-bottom-15">
+                    <a class="c-a-undelined" href="https://1902software.com/umbraco/seoplus/faq/" target="_blank">Learn more why this is important</a>.
+                </div>
+            </div>
+    </div>
+</div>

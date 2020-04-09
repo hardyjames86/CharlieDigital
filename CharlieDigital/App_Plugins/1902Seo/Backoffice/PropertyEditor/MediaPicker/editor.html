@@ -1,0 +1,40 @@
+﻿<div class="" ng-controller="mediaPicker.1902Seo.controller" >
+    
+    <div class="custom-max-editor-width p-relative">
+        <label class="c-label p-4-imp" ng-if="model.config.customInnerLabel != undefined && model.config.customInnerLabel != ''"> {{model.config.customInnerLabel}}
+            <span ng-if="model.tooltip != '' && model.tooltip != undefined" class="c-hint-left" ng-bind-html="model.rawHintHtml" c-hint-hover>
+
+            </span>
+        </label>
+        <div ng-class="{customLabelPadded : model.config.customInnerLabel != undefined && model.config.customInnerLabel != ''
+                  ,customFullPadded: model.config.customInnerLabel == ''||  model.config.customInnerLabel == undefined}">
+            <div class="c-media-container">
+                <ul ng-model="images" class="add-link">
+                    <li style="overflow: auto;" ng-repeat="image in images">
+                        <div style="background-image:url({{image.thumbnail}})" class="c-media-img"></div>
+                    </li>
+                </ul>
+              
+            </div>
+            <div>
+                <div class="custom-label-gray">
+                    <p>The maximum file size is {{maxKbDisplay}} <span class="c-hint-left" ng-bind-html="model.rawImageSizeHint" c-hint-hover></span></p>
+                    <p>The optimal image size is {{idealWidth}} x {{idealHeight}} px</p>
+                </div>
+                <div ng-if="!showAdd()" class="c-m-top-10">
+                    <input type="button" ng-click="remove($index)" class="button-red c-no-wrap" value="Remove" c-disable-start />
+                    <input type="button" ng-click="add()" class="button-violet c-no-wrap" value="Change Image" c-disable-start />
+                </div>
+                <div ng-if="showAdd()" class="c-m-top-10">
+                    <input type="button" class="button-violet c-no-wrap" ng-click="add()" value="Choose file..." c-disable-start />
+                </div>
+                <div>
+                    <p class="c-warning f-size-12 c-m-top-10">
+                        {{warningMessage}}  
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+</div>

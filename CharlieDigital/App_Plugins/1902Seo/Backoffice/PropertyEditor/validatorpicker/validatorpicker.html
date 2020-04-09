@@ -1,0 +1,52 @@
+<div ng-controller="1902.PropertyEditor.TextInputController"
+     ng-model="model"
+    1902-text-input>
+
+    <div class="custom-max-editor-width p-relative">
+        <label class="c-label p-4-imp" ng-if="model.config.customInnerLabel != undefined && model.config.customInnerLabel != ''"> {{model.config.customInnerLabel}}</label>
+
+        <div ng-class="{customLabelPadded : model.config.customInnerLabel != undefined && model.config.customInnerLabel != ''
+                  ,customFullPadded: model.config.customInnerLabel == ''||  model.config.customInnerLabel == undefined}">
+            <div class="p-relative">
+
+                
+                <input class="customFullPadded property-input" 
+                       ng-model="model.value" 
+                       ng-if="model.field == 'textstring' && model.config.maxInput != undefined && model.config.maxInput != null &&  model.config.maxInput != '' && model.config.maxInput > 0" 
+                       maxlength="{{model.config.maxInput}}"
+                       type="text" placeholder="{{model.config.placeHolder}}" 
+                       c-disable-start  c-hide-start />
+
+                <input class="customFullPadded property-input" 
+                       ng-model="model.value" 
+                       ng-if="model.field == 'textstring' && (model.config.maxInput == undefined || model.config.maxInput == null ||  mode.config.maxInput == '' || model.config.maxInput == 0)" 
+                       type="text" placeholder="{{model.config.placeHolder}}"
+                       c-disable-start  c-hide-start />
+           
+                <textarea class="customFullPadded property-input c-textarea" 
+                          ng-model="model.value" 
+                          rows="5" 
+                          ng-if="model.field =='textarea' && model.config.maxInput != undefined && model.config.maxInput != null &&  mode.config.maxInput != '' && model.config.maxInput > 0"
+                           placeholder="{{model.config.placeHolder}}"
+                          maxlength="{{model.config.maxInput}}"
+                          c-disable-start  c-hide-start ></textarea>
+
+                 <textarea class="customFullPadded property-input c-textarea"
+                            ng-model="model.value" rows="5" 
+                           ng-if="model.field =='textarea' && (model.config.maxInput == undefined || model.config.maxInput == null ||  mode.config.maxInput == '' || model.config.maxInput == 0)"
+                            placeholder="{{model.config.placeHolder}}"
+                           c-disable-start c-hide-start></textarea>
+
+
+                <span ng-if="model.tooltip != '' && model.tooltip != undefined" class="c-hint-right" ng-bind-html="model.rawHintHtml" c-hint-hover>
+
+                </span>
+                <p class="validator-picker-counter custom-max-length" ng-if="model.config.characterCount == 1">
+                    <span ng-if="model.inputLength != ''" class="custom-max-length"> {{model.inputLength}}</span>
+                </p>
+                <ul class="validator-picker-message"></ul>
+            </div>
+        </div>
+    </div>
+
+</div>
